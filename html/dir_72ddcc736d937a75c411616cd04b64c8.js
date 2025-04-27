@@ -4,6 +4,7 @@ var dir_72ddcc736d937a75c411616cd04b64c8 =
     [ "Admin.h", "_admin_8h.html", "_admin_8h" ],
     [ "Bank.cpp", "_bank_8cpp.html", null ],
     [ "Bank.h", "_bank_8h.html", "_bank_8h" ],
+    [ "BankTests.cpp", "_bank_tests_8cpp.html", null ],
     [ "Customer.cpp", "_customer_8cpp.html", null ],
     [ "Customer.h", "_customer_8h.html", "_customer_8h" ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],

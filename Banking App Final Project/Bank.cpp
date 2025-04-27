@@ -156,7 +156,7 @@ template std::vector<Account<double>*> Bank::getAccountsForCustomer<double>(int)
 
 template <typename T>
 Account<T>* Bank::getAccountByNumber(const string& accountNumber) {
-	string sql = "SELECT account_id, account_number, balance FROM accounts WHERE account_number = '" + accountNumber + "'; ";
+	string sql = "SELECT account_id, account_number, balance, account_type FROM accounts WHERE account_number = '" + accountNumber + "'; ";
 	sqlite3_stmt* stmt;
 
 	if (!executeSQL(sql, &stmt)) return nullptr;

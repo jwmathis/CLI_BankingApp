@@ -45,6 +45,9 @@
     <ClCompile Include="UIUtilities.cpp">
       <Filter>Source Files\ModularizedFunctions</Filter>
     </ClCompile>
+    <ClCompile Include="BankTests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">

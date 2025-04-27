@@ -26,6 +26,10 @@
 #include <ftxui/dom/elements.hpp>
 //#include <memory>
 
+#ifdef RUN_TESTS
+#include <gtest/gtest.h>
+#endif
+
 using namespace std;
 using namespace ftxui;
 
@@ -69,7 +73,12 @@ Component Window(string title, Component component) {
  *
  * @return int Returns 0 on successful execution.
  */
-int main() {
+int main(int argc, char* argv[]) {
+
+#ifdef RUN_TESTS // If running tests
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+#else // If not running tests
 	Bank MercerBank(databaseDir); //initialize bank and database
 	bool exitFlag = false;
 
@@ -403,4 +412,5 @@ int main() {
 		return 0;
 		}
 	}
+#endif
 }
