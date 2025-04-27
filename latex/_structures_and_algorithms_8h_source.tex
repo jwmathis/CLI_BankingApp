@@ -1,0 +1,110 @@
+\doxysection{Structures\+And\+Algorithms.\+h}
+\hypertarget{_structures_and_algorithms_8h_source}{}\label{_structures_and_algorithms_8h_source}\index{Banking App Final Project/StructuresAndAlgorithms.h@{Banking App Final Project/StructuresAndAlgorithms.h}}
+\mbox{\hyperlink{_structures_and_algorithms_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00003\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_custom_stack_a3da3c71ed15325676ff5a73ba9cf09fa}{CustomStack}}\ \{}
+\DoxyCodeLine{00004\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00005\ \ \ \ \ \textcolor{keyword}{struct\ }Node\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \ \ \ \ T\ data;}
+\DoxyCodeLine{00007\ \ \ \ \ \ \ \ \ Node*\ next;}
+\DoxyCodeLine{00008\ \ \ \ \ \ \ \ \ Node(\textcolor{keyword}{const}\ T\&\ data,\ Node*\ next\ =\ \textcolor{keyword}{nullptr})\ :\ data(data),\ next(next)\ \{\}}
+\DoxyCodeLine{00009\ \ \ \ \ \};}
+\DoxyCodeLine{00010\ \ \ \ \ Node*\ topNode;\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_custom_stack_a3da3c71ed15325676ff5a73ba9cf09fa}{CustomStack}}()\ :\ topNode(nullptr)\ \{\}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_custom_stack_aec1ed5ebd26190421f395ceeff1e74ca}{\string~CustomStack}}()\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{class_custom_stack_a229af57ba233a8c9f0f0365902c8c0c0}{empty}}())\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_custom_stack_a1def9d0baa1b83f53a2b5cfd42be918b}{pop}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_custom_stack_adfd873dbd107c974a8a4f36b4095e1af}{push}}(\textcolor{keyword}{const}\ T\&\ value)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ topNode\ =\ \textcolor{keyword}{new}\ Node(value,\ topNode);}
+\DoxyCodeLine{00023\ \ \ \ \ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_custom_stack_a1def9d0baa1b83f53a2b5cfd42be918b}{pop}}()\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (topNode)\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ Node*\ temp\ =\ topNode;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ topNode\ =\ topNode-\/>next;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ temp;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ T\ \mbox{\hyperlink{class_custom_stack_a20485c13ad55c3e18c5bcce8f514efe1}{top}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!topNode)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Stack\ is\ empty"{}});}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ topNode-\/>data;}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_custom_stack_a229af57ba233a8c9f0f0365902c8c0c0}{empty}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ topNode\ ==\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00046\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_custom_queue_a565ff451c4368aca8a1a708364b9a1fc}{CustomQueue}}\ \{}
+\DoxyCodeLine{00047\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{struct\ }Node\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ T\ data;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ Node*\ next;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ Node(\textcolor{keyword}{const}\ T\&\ data,\ Node*\ next\ =\ \textcolor{keyword}{nullptr})\ :\ data(data),\ next(next)\ \{\}}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ \ \ \ \ Node*\ frontNode;\ }
+\DoxyCodeLine{00054\ \ \ \ \ Node*\ rearNode;\ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ count;\ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a565ff451c4368aca8a1a708364b9a1fc}{CustomQueue}}()\ :\ frontNode(nullptr),\ rearNode(nullptr)\ \{\}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a45a5316a51c4489c22d0c3b9659d0bd5}{\string~CustomQueue}}()\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{class_custom_queue_ac77796d4dc67637357abfe698b164bee}{empty}}())\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a1b4fabafa838264e5ec327ece9201c8d}{pop}}();}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_custom_queue_a49e41896fca2c8c83c1456a043216fe8}{push}}(\textcolor{keyword}{const}\ T\&\ value)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ Node*\ newNode\ =\ \textcolor{keyword}{new}\ Node(value);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rearNode)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ rearNode-\/>next\ =\ newNode;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ frontNode\ =\ newNode;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ rearNode\ =\ newNode;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ ++count;\ \textcolor{comment}{//\ Increment\ size}}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_custom_queue_a1b4fabafa838264e5ec327ece9201c8d}{pop}}()\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_custom_queue_ac77796d4dc67637357abfe698b164bee}{empty}}())\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ Node*\ temp\ =\ frontNode;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ frontNode\ =\ frontNode-\/>next;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ temp;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/count;\ \textcolor{comment}{//\ Decrement\ size}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!frontNode)\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rearNode\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ If\ queue\ is\ empty,\ reset\ rear\ pointer}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ T\ \mbox{\hyperlink{class_custom_queue_adf731b18f0bc3ff4c897e1802cf05c15}{front}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!frontNode)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Queue\ is\ empty"{}});}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ frontNode-\/>data;}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_custom_queue_ac77796d4dc67637357abfe698b164bee}{empty}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ frontNode\ ==\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_custom_queue_a734f21789c2647bdb9b155ff8617bee5}{size}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00102\ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \};}
+\DoxyCodeLine{00104\ }
+
+\end{DoxyCode}

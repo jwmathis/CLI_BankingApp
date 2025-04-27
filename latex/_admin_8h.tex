@@ -1,14 +1,14 @@
-\doxysection{Banking App Final Project/\+Source/\+Admin.h File Reference}
-\hypertarget{_admin_8h}{}\label{_admin_8h}\index{Banking App Final Project/Source/Admin.h@{Banking App Final Project/Source/Admin.h}}
+\doxysection{Banking App Final Project/\+Admin.h File Reference}
+\hypertarget{_admin_8h}{}\label{_admin_8h}\index{Banking App Final Project/Admin.h@{Banking App Final Project/Admin.h}}
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include "{}Bank.\+h"{}}\newline
 {\ttfamily \#include "{}Transfer.\+h"{}}\newline
 {\ttfamily \#include "{}Account.\+h"{}}\newline
 {\ttfamily \#include "{}Customer.\+h"{}}\newline
-{\ttfamily \#include "{}Bank.\+h"{}}\newline
 {\ttfamily \#include "{}SQLite\+Functions.\+h"{}}\newline
-{\ttfamily \#include $<$iostream$>$}\newline
-{\ttfamily \#include $<$algorithm$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -19,38 +19,30 @@ class \mbox{\hyperlink{class_account_b_s_t}{Account\+BST}}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_admin_8h_a6a9cb61e5783921dc452896edc2aee37}{merge}} (std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, int low, int mid, int high)
-\begin{DoxyCompactList}\small\item\em Merges two halves of a vector of accounts, sorted by balance. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_admin_8h_a715509412ca88e057e65b49c47898809}{merge\+\_\+recurse}} (std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, int low, int high)
-\begin{DoxyCompactList}\small\item\em Recursively performs merge sort on a vector of accounts. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_admin_8h_ad62e53928b6bbb26d9644fad46f16b27}{merge\+Sort}} (std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, int length)
-\begin{DoxyCompactList}\small\item\em Sorts a vector of accounts using merge sort. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{_admin_8h_a92c9d4cc7de17a4e74c767b944bba5b9}{find\+Lower\+Bound}} (const std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, double min\+Balance)
-\begin{DoxyCompactList}\small\item\em Finds the lower bound of an account balance in a sorted vector using binary search. \end{DoxyCompactList}\item 
-vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \mbox{\hyperlink{_admin_8h_af1e3e1c601b5a4808728419836ac373b}{get\+Accounts\+In\+Balance\+Range}} (std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, double min\+Balance, double max\+Balance)
-\begin{DoxyCompactList}\small\item\em Retrieves accounts within a specified balance range. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_admin_8h_a3a413623c154276e5f645cd3d1ad2c9f}{merge}} (vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, int low, int mid, int high)
-\begin{DoxyCompactList}\small\item\em Merges two halves of a vector of accounts during sorting. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Merges two halves of a vector of accounts, sorted by balance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}{merge\+\_\+recurse}} (vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, int low, int high)
-\begin{DoxyCompactList}\small\item\em Recursively splits and merges a vector of accounts for merge sort. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Recursively performs merge sort on a vector of accounts. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_admin_8h_a790b527353354f26f37d37e7a258a3f9}{merge\+Sort}} (vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, int length)
-\begin{DoxyCompactList}\small\item\em Performs merge sort on a vector of accounts. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sorts a vector of accounts using merge sort. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_admin_8h_a067ce5037185b1ffb5c8fc3ee3e7cf88}{find\+Lower\+Bound}} (const vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, double min\+Balance)
-\begin{DoxyCompactList}\small\item\em Finds the index of the first account with a balance \texorpdfstring{$>$}{>}= min\+Balance. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Finds the lower bound of an account balance in a sorted vector using binary search. \end{DoxyCompactList}\item 
 vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \mbox{\hyperlink{_admin_8h_ae18b6b70f3ed17cd0e4272110bc7bd63}{get\+Accounts\+In\+Balance\+Range}} (vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&accounts, double min\+Balance, double max\+Balance)
 \begin{DoxyCompactList}\small\item\em Retrieves accounts within a specified balance range. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_admin_8h_a92c9d4cc7de17a4e74c767b944bba5b9}\index{Admin.h@{Admin.h}!findLowerBound@{findLowerBound}}
+\Hypertarget{_admin_8h_a067ce5037185b1ffb5c8fc3ee3e7cf88}\index{Admin.h@{Admin.h}!findLowerBound@{findLowerBound}}
 \index{findLowerBound@{findLowerBound}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{findLowerBound()}{findLowerBound()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{_admin_8h_a92c9d4cc7de17a4e74c767b944bba5b9} 
-int find\+Lower\+Bound (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{double}]{min\+Balance}{}\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{findLowerBound()}{findLowerBound()}}
+{\footnotesize\ttfamily \label{_admin_8h_a067ce5037185b1ffb5c8fc3ee3e7cf88} 
+int find\+Lower\+Bound (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{double}]{min\+Balance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Finds the lower bound of an account balance in a sorted vector using binary search. 
+
+Finds the index of the first account with a balance \texorpdfstring{$>$}{>}= min\+Balance.
 
 
 \begin{DoxyParams}{Parameters}
@@ -60,18 +52,8 @@ Finds the lower bound of an account balance in a sorted vector using binary sear
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The index of the first account with a balance \texorpdfstring{$>$}{>}= min\+Balance, or -\/1 if not found. 
+The index of the first account with a balance \texorpdfstring{$>$}{>}= min\+Balance, or -\/1 if not found.
 \end{DoxyReturn}
-\Hypertarget{_admin_8h_a067ce5037185b1ffb5c8fc3ee3e7cf88}\index{Admin.h@{Admin.h}!findLowerBound@{findLowerBound}}
-\index{findLowerBound@{findLowerBound}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{findLowerBound()}{findLowerBound()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{_admin_8h_a067ce5037185b1ffb5c8fc3ee3e7cf88} 
-int find\+Lower\+Bound (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{double}]{min\+Balance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Finds the index of the first account with a balance \texorpdfstring{$>$}{>}= min\+Balance. 
-
 
 \begin{DoxyParams}{Parameters}
 {\em accounts} & The sorted vector of accounts. \\
@@ -82,11 +64,11 @@ Finds the index of the first account with a balance \texorpdfstring{$>$}{>}= min
 \begin{DoxyReturn}{Returns}
 The index of the account or -\/1 if not found. 
 \end{DoxyReturn}
-\Hypertarget{_admin_8h_af1e3e1c601b5a4808728419836ac373b}\index{Admin.h@{Admin.h}!getAccountsInBalanceRange@{getAccountsInBalanceRange}}
+\Hypertarget{_admin_8h_ae18b6b70f3ed17cd0e4272110bc7bd63}\index{Admin.h@{Admin.h}!getAccountsInBalanceRange@{getAccountsInBalanceRange}}
 \index{getAccountsInBalanceRange@{getAccountsInBalanceRange}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{getAccountsInBalanceRange()}{getAccountsInBalanceRange()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{_admin_8h_af1e3e1c601b5a4808728419836ac373b} 
-vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ get\+Accounts\+In\+Balance\+Range (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{double}]{min\+Balance}{, }\item[{double}]{max\+Balance}{}\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{getAccountsInBalanceRange()}{getAccountsInBalanceRange()}}
+{\footnotesize\ttfamily \label{_admin_8h_ae18b6b70f3ed17cd0e4272110bc7bd63} 
+vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ get\+Accounts\+In\+Balance\+Range (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{double}]{min\+Balance}{, }\item[{double}]{max\+Balance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -102,18 +84,8 @@ Retrieves accounts within a specified balance range.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A vector of accounts within the specified balance range. 
+A vector of accounts within the specified balance range.
 \end{DoxyReturn}
-\Hypertarget{_admin_8h_ae18b6b70f3ed17cd0e4272110bc7bd63}\index{Admin.h@{Admin.h}!getAccountsInBalanceRange@{getAccountsInBalanceRange}}
-\index{getAccountsInBalanceRange@{getAccountsInBalanceRange}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{getAccountsInBalanceRange()}{getAccountsInBalanceRange()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{_admin_8h_ae18b6b70f3ed17cd0e4272110bc7bd63} 
-vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ get\+Accounts\+In\+Balance\+Range (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{double}]{min\+Balance}{, }\item[{double}]{max\+Balance}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Retrieves accounts within a specified balance range. 
-
 
 \begin{DoxyParams}{Parameters}
 {\em accounts} & The vector of accounts. \\
@@ -126,15 +98,17 @@ Retrieves accounts within a specified balance range.
 \begin{DoxyReturn}{Returns}
 A vector of accounts within the specified range. 
 \end{DoxyReturn}
-\Hypertarget{_admin_8h_a6a9cb61e5783921dc452896edc2aee37}\index{Admin.h@{Admin.h}!merge@{merge}}
+\Hypertarget{_admin_8h_a3a413623c154276e5f645cd3d1ad2c9f}\index{Admin.h@{Admin.h}!merge@{merge}}
 \index{merge@{merge}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{merge()}{merge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{_admin_8h_a6a9cb61e5783921dc452896edc2aee37} 
-void merge (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{int}]{low}{, }\item[{int}]{mid}{, }\item[{int}]{high}{}\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily \label{_admin_8h_a3a413623c154276e5f645cd3d1ad2c9f} 
+void merge (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{int}]{low}{, }\item[{int}]{mid}{, }\item[{int}]{high}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
 Merges two halves of a vector of accounts, sorted by balance. 
+
+Merges two halves of a vector of accounts during sorting.
 
 
 \begin{DoxyParams}{Parameters}
@@ -144,21 +118,8 @@ Merges two halves of a vector of accounts, sorted by balance.
 \hline
 {\em mid} & The ending index of the first half. \\
 \hline
-{\em high} & The ending index of the second half. \\
+{\em high} & The ending index of the second half.\\
 \hline
-\end{DoxyParams}
-\Hypertarget{_admin_8h_a3a413623c154276e5f645cd3d1ad2c9f}\index{Admin.h@{Admin.h}!merge@{merge}}
-\index{merge@{merge}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{merge()}{merge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{_admin_8h_a3a413623c154276e5f645cd3d1ad2c9f} 
-void merge (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{int}]{low}{, }\item[{int}]{mid}{, }\item[{int}]{high}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Merges two halves of a vector of accounts during sorting. 
-
-
-\begin{DoxyParams}{Parameters}
 {\em accounts} & The vector of accounts to merge. \\
 \hline
 {\em low} & The starting index of the first half. \\
@@ -168,34 +129,17 @@ Merges two halves of a vector of accounts during sorting.
 {\em high} & The ending index of the second half. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_admin_8h_a715509412ca88e057e65b49c47898809}\index{Admin.h@{Admin.h}!merge\_recurse@{merge\_recurse}}
-\index{merge\_recurse@{merge\_recurse}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{merge\_recurse()}{merge\_recurse()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{_admin_8h_a715509412ca88e057e65b49c47898809} 
-void merge\+\_\+recurse (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{int}]{low}{, }\item[{int}]{high}{}\end{DoxyParamCaption})}
-
-
-
-Recursively performs merge sort on a vector of accounts. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em accounts} & The vector of accounts. \\
-\hline
-{\em low} & The starting index. \\
-\hline
-{\em high} & The ending index. \\
-\hline
-\end{DoxyParams}
 \Hypertarget{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}\index{Admin.h@{Admin.h}!merge\_recurse@{merge\_recurse}}
 \index{merge\_recurse@{merge\_recurse}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{merge\_recurse()}{merge\_recurse()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{merge\_recurse()}{merge\_recurse()}}
 {\footnotesize\ttfamily \label{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d} 
 void merge\+\_\+recurse (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{int}]{low}{, }\item[{int}]{high}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Recursively splits and merges a vector of accounts for merge sort. 
+Recursively performs merge sort on a vector of accounts. 
+
+Recursively splits and merges a vector of accounts for merge sort.
 
 
 \begin{DoxyParams}{Parameters}
@@ -206,35 +150,24 @@ Recursively splits and merges a vector of accounts for merge sort.
 {\em high} & The ending index. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{_admin_8h_ad62e53928b6bbb26d9644fad46f16b27}\index{Admin.h@{Admin.h}!mergeSort@{mergeSort}}
-\index{mergeSort@{mergeSort}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{mergeSort()}{mergeSort()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \label{_admin_8h_ad62e53928b6bbb26d9644fad46f16b27} 
-void merge\+Sort (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{int}]{length}{}\end{DoxyParamCaption})}
-
-
-
-Sorts a vector of accounts using merge sort. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em accounts} & The vector of accounts to sort. \\
-\hline
-{\em length} & The number of accounts in the vector. \\
-\hline
-\end{DoxyParams}
 \Hypertarget{_admin_8h_a790b527353354f26f37d37e7a258a3f9}\index{Admin.h@{Admin.h}!mergeSort@{mergeSort}}
 \index{mergeSort@{mergeSort}!Admin.h@{Admin.h}}
-\doxysubsubsection{\texorpdfstring{mergeSort()}{mergeSort()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{mergeSort()}{mergeSort()}}
 {\footnotesize\ttfamily \label{_admin_8h_a790b527353354f26f37d37e7a258a3f9} 
 void merge\+Sort (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{struct_bank_1_1acc}{Bank\+::acc}} $>$ \&}]{accounts}{, }\item[{int}]{length}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Performs merge sort on a vector of accounts. 
+Sorts a vector of accounts using merge sort. 
+
+Performs merge sort on a vector of accounts.
 
 
 \begin{DoxyParams}{Parameters}
+{\em accounts} & The vector of accounts to sort. \\
+\hline
+{\em length} & The number of accounts in the vector.\\
+\hline
 {\em accounts} & The vector of accounts to sort. \\
 \hline
 {\em length} & The number of elements in the vector. \\

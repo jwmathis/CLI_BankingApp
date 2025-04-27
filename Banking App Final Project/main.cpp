@@ -16,7 +16,7 @@
 #include "UIUtilities.h"
 #include "Bank.h"
 #include "Admin.h"
-
+#include "graph.h"
 // Include files for FTXUI
 #include <ftxui/component/captured_mouse.hpp>
 #include <ftxui/component/component.hpp>
@@ -82,9 +82,14 @@ int main(int argc, char* argv[]) {
 	Bank MercerBank(databaseDir); //initialize bank and database
 	bool exitFlag = false;
 
-	cout << "Press enter to continue...\n";
-	displayWelcomeAnimation();
-
+	//cout << "Press enter to continue...\n";
+	//displayWelcomeAnimation();
+	clearScreen(); // Clear the terminal screen
+	printDollarSign(); // Print the static dollar sign
+	cout << "\n" << WELCOME_MESSAGE << "\n" << endl; // Display welcome message
+	printMU(); // Print the MU logo
+	system("pause");
+	
 	auto screen = ScreenInteractive::TerminalOutput(); // FTXUI: Initialize the screen
 	vector<string> MainMenuEntries = { // Main menu entries
 		"1. Register",
@@ -235,7 +240,8 @@ int main(int argc, char* argv[]) {
 					"2. Search for Accounts By Balance Range",
 					"3. Search for Accounts By Name",
 					"4. Dummy Account",
-					"5. Exit"
+					"5. Exit",
+					"6. Implementing Graphs Testing"
 				};
 
 				int selectedAdminMenuEntry = 0; // FTXUI: Selected admin menu entry variable
@@ -395,6 +401,34 @@ int main(int argc, char* argv[]) {
 				case 5: { // FTXUI: Exit admin menu
 					flag = false;// FTXUI: Set flag to false to exit the loop
 					break;
+				}
+
+				case 6: {
+					cout << "This section is for demonstration purposes only." << endl;
+					Bank bank("Mercer Bank");
+					bank.registerCustomer("John Doe", "john123", "1234");
+					Customer* customer = bank.login("john123", "1234");
+
+					if (customer) {
+						// Create graph for customer relationships
+						Graph graph(10);  // Assume 10 customers for simplicity
+						graph.add_customer(customer->getId(), customer->getName());
+
+						// Add a few accounts for the customer
+						bank.addAccountForCustomer(customer->getId(), "123456789", 1000.0, "Savings");
+						bank.addAccountForCustomer(customer->getId(), "987654321", 2000.0, "Checking");
+
+						// Show accounts related to the customer
+						graph.show_accounts_related_to_customer(customer->getId(), bank);
+
+						// Optionally, you can now print the graph of customer relationships
+						graph.print();
+					}
+					else {
+						cout << "Login failed!" << endl;
+					}
+					system("pause");
+					system("cls");
 				}
 				default:
 					break;

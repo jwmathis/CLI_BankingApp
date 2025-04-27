@@ -1,5 +1,5 @@
 \doxysection{Customer.\+h}
-\hypertarget{_customer_8h_source}{}\label{_customer_8h_source}\index{Banking App Final Project/Source/Customer.h@{Banking App Final Project/Source/Customer.h}}
+\hypertarget{_customer_8h_source}{}\label{_customer_8h_source}\index{Banking App Final Project/Customer.h@{Banking App Final Project/Customer.h}}
 \mbox{\hyperlink{_customer_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -8,69 +8,68 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_account_8h}{Account.h}}"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}sqlite3.h"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stack>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <queue>}}
-\DoxyCodeLine{00009\ \textcolor{keyword}{using\ namespace\ }std;}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}}\ \{}
-\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{int}\ id;\ }
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{string}\ name;\ }
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{string}\ username;\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{string}\ pin;\ }
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{struct\ }Transaction\ \{}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ type;\ }
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ amount;\ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ timestamp;\ }
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ Transaction*\ next;\ }
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ Transaction(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ type,\ \textcolor{keywordtype}{double}\ amount,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ timestamp)}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ :\ type(type),\ amount(amount),\ timestamp(timestamp),\ next(\textcolor{keyword}{nullptr})\ \{}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00046\ \ \ \ \ \};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ Transaction*\ transactionHead;\ }
-\DoxyCodeLine{00049\ \ \ \ \ stack<Transaction*>\ undoStack;\ }
-\DoxyCodeLine{00050\ \ \ \ \ queue<string>\ helpRequestQueue;\ }
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}}();}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ username,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ pin);}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_customer_ab93fb14683b0393b9c900109f77c2629}{\string~Customer}}();}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ Getters}}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_customer_acdbe83bbd49996e9a3b62820433b6f5d}{getId}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ \mbox{\hyperlink{class_customer_ab3b175c6e82d67d019d2619dc405e074}{getName}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ \mbox{\hyperlink{class_customer_ad12dd022ccf15b1e7aeb15001075bc80}{getUsername}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{comment}{//\ Behavior\ methods}}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_customer_a39cf850455bc8a02150f7ce95b7348d4}{verifyPin}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ inputPin)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_customer_a6269396e204e3eafd14db372246ba7e1}{generateTransactionReceiptFilename}}();}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a255a84dfa66744e6f7689d4311dc8cd9}{generateTransactionReceipt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ transaction);}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{//\ Transaction\ methods}}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_ad26221c608bed7602434f3982e54d0bc}{addTransaction}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ type,\ \textcolor{keywordtype}{double}\ amount,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ timestamp);}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a7c4c59e2325c3653b2480025a5a17ab0}{undoTransaction}}();}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_aa7b82fad31c4967e52eb1e49e6d368f8}{addHelpRequest}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ request);}
-\DoxyCodeLine{00133\ }
-\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_customer_a80f34e8da9bbe814e7f0a49800823a24}{removeHelpRequest}}();}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00144\ \ \ \ \ queue<std::string>\ \mbox{\hyperlink{class_customer_afef5cc4d290ef8500c14c33d5eb49180}{getHelpRequests}}();}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a0b460506c6a2bc5a8a1cb3f67c25b7b6}{displayTransactionHistory}}();\ \textcolor{comment}{//\ To\ integrate\ with\ FTXUI}}
-\DoxyCodeLine{00150\ \};}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_structures_and_algorithms_8h}{StructuresAndAlgorithms.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ id;\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{string}\ name;\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{string}\ username;\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{string}\ pin;\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }Transaction\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ type;\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ amount;\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ timestamp;\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ Transaction*\ next;\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ Transaction(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ type,\ \textcolor{keywordtype}{double}\ amount,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ timestamp)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ :\ type(type),\ amount(amount),\ timestamp(timestamp),\ next(\textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ Transaction*\ transactionHead;\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_custom_stack}{CustomStack<Transaction*>}}\ undoStack;\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_custom_queue}{CustomQueue<string>}}\ helpRequestQueue;\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_customer_abcc8fae9701e5ba9d7d6fe44498b34e3}{Customer}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ username,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ pin);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_customer_ab93fb14683b0393b9c900109f77c2629}{\string~Customer}}();}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_customer_acdbe83bbd49996e9a3b62820433b6f5d}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ \mbox{\hyperlink{class_customer_ab3b175c6e82d67d019d2619dc405e074}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ \mbox{\hyperlink{class_customer_ad12dd022ccf15b1e7aeb15001075bc80}{getUsername}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{comment}{//\ Behavior\ methods}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_customer_a39cf850455bc8a02150f7ce95b7348d4}{verifyPin}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ inputPin)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_customer_a6269396e204e3eafd14db372246ba7e1}{generateTransactionReceiptFilename}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a255a84dfa66744e6f7689d4311dc8cd9}{generateTransactionReceipt}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ transaction);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ Transaction\ methods}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_ad26221c608bed7602434f3982e54d0bc}{addTransaction}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ type,\ \textcolor{keywordtype}{double}\ amount,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ timestamp);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a7c4c59e2325c3653b2480025a5a17ab0}{undoTransaction}}();}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_aa7b82fad31c4967e52eb1e49e6d368f8}{addHelpRequest}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ request);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_customer_a80f34e8da9bbe814e7f0a49800823a24}{removeHelpRequest}}();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{class_custom_queue}{CustomQueue<string>}}\&\ \mbox{\hyperlink{class_customer_acf385f328a77da5bccd3b704a80ec17d}{getHelpRequests}}();}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a0b460506c6a2bc5a8a1cb3f67c25b7b6}{displayTransactionHistory}}();\ \textcolor{comment}{//\ To\ integrate\ with\ FTXUI}}
+\DoxyCodeLine{00149\ \};}
 
 \end{DoxyCode}

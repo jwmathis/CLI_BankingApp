@@ -1,0 +1,4 @@
+Transaction: ✅ Deposit successful! New balance: $4415.000000
+------------------------------------------
+Transaction: ✅ Deposit successful! New balance: $4419.000000
+------------------------------------------

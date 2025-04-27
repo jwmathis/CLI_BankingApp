@@ -42,7 +42,7 @@ DOXYFILE_ENCODING      = UTF-8
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = "Banking CLI Application"
+PROJECT_NAME           = "CLI Banking Application"
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number. This
 # could be handy for archiving the generated documentation or if some version
@@ -991,7 +991,21 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = "C:\Users\John Wesley\source\repos\SSE550_BankingApp\Banking App Final Project\Source"
+INPUT                  = "Banking App Final Project/Account.h" \
+                        "Banking App Final Project/Admin.h" \
+                        "Banking App Final Project/Bank.cpp" \
+                        "Banking App Final Project/Bank.h" \
+                        "Banking App Final Project/BankTests.cpp" \
+                        "Banking App Final Project/Customer.cpp" \
+                        "Banking App Final Project/Customer.h" \
+                        "Banking App Final Project/main.cpp" \
+                        "Banking App Final Project/SavingsAccount.h" \
+                        "Banking App Final Project/SQLiteFunctions.cpp" \
+                        "Banking App Final Project/SQLiteFunctions.h" \
+                        "Banking App Final Project/StructuresAndAlgorithms.h" \
+                        "Banking App Final Project/Transfer.h" \
+                        "Banking App Final Project/UIUtilities.cpp" \
+                        "Banking App Final Project/UIUtilities.h"
 
 # This tag can be used to specify the character encoding of the source files
 # that Doxygen parses. Internally Doxygen uses the UTF-8 encoding. Doxygen uses

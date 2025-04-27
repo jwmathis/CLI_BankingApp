@@ -7,6 +7,8 @@ var hierarchy =
     [ "AccountBST", "class_account_b_s_t.html", null ],
     [ "Bank", "class_bank.html", null ],
     [ "Customer", "class_customer.html", null ],
+    [ "CustomQueue< T >", "class_custom_queue.html", null ],
+    [ "CustomStack< T >", "class_custom_stack.html", null ],
     [ "Transfer< T >", "class_transfer.html", null ],
     [ "TreeNode", "struct_tree_node.html", null ]
 ];

@@ -217,10 +217,12 @@
     <ClInclude Include="Admin.h" />
     <ClInclude Include="Bank.h" />
     <ClInclude Include="Customer.h" />
+    <ClInclude Include="graph.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SavingsAccount.h" />
     <ClInclude Include="sqlite3.h" />
     <ClInclude Include="SQLiteFunctions.h" />
+    <ClInclude Include="StructuresAndAlgorithms.h" />
     <ClInclude Include="Transfer.h" />
     <ClInclude Include="UIUtilities.h" />
   </ItemGroup>

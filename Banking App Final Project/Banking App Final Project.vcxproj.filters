@@ -74,11 +74,17 @@
     <ClInclude Include="SavingsAccount.h">
       <Filter>Header Files\Class Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Admin.h">
-      <Filter>Header Files\Class Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="UIUtilities.h">
       <Filter>Header Files\Modularized Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StructuresAndAlgorithms.h">
+      <Filter>Header Files\Class Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Admin.h">
+      <Filter>Header Files\Modularized Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graph.h">
+      <Filter>Header Files\Class Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

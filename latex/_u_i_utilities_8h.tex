@@ -1,5 +1,5 @@
-\doxysection{Banking App Final Project/\+Source/\+UIUtilities.h File Reference}
-\hypertarget{_u_i_utilities_8h}{}\label{_u_i_utilities_8h}\index{Banking App Final Project/Source/UIUtilities.h@{Banking App Final Project/Source/UIUtilities.h}}
+\doxysection{Banking App Final Project/\+UIUtilities.h File Reference}
+\hypertarget{_u_i_utilities_8h}{}\label{_u_i_utilities_8h}\index{Banking App Final Project/UIUtilities.h@{Banking App Final Project/UIUtilities.h}}
 {\ttfamily \#include "{}Bank.\+h"{}}\newline
 {\ttfamily \#include "{}Customer.\+h"{}}\newline
 {\ttfamily \#include "{}Transfer.\+h"{}}\newline
@@ -35,7 +35,7 @@ enum \mbox{\hyperlink{_u_i_utilities_8h_a738419ee04f7ab8147651b3c9cc05bdc}{Main\
  \}
 \begin{DoxyCompactList}\small\item\em Represents options in the main menu of the banking application. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75b}{Customer\+Menu\+Option}} \{ \newline
-\mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba0c60b378e8d76bd870716514a2885b40}{NEW\+\_\+\+ACCOUNT}} = 1
+\mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba0c60b378e8d76bd870716514a2885b40}{NEW\+\_\+\+ACCOUNT}} = 0
 , \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75bae90e8d829638e97b3330069997f379c8}{BALANCE\+\_\+\+INQUIRY}}
 , \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba8141041378ff74414ef2652b7af75bd8}{DEPOSIT\+\_\+\+AMOUNT}}
 , \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75baff72eda42689908b990650bc56b9895c}{WITHDRAW\+\_\+\+AMOUNT}}
@@ -43,6 +43,10 @@ enum \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75b}{Custo
 \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba0104f3859cf661b867ad9188954f8f98}{TRANSFER\+\_\+\+AMOUNT}}
 , \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75bacfaf2d85f1e078c1f877574196f07ae8}{CLOSE\+\_\+\+ACCOUNT}}
 , \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60}{HISTORY}}
+, \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba22a937c23ef109ac28176b98dacad9c6}{UNDO}}
+, \newline
+\mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}}
+, \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70}{LOGOUT}}
  \}
 \begin{DoxyCompactList}\small\item\em Represents options available in the customer\textquotesingle{}s menu. \end{DoxyCompactList}\item 
 enum \mbox{\hyperlink{_u_i_utilities_8h_af813a43f797e4be565a1d8203af684e7}{Account\+Type\+Option}} \{ \mbox{\hyperlink{_u_i_utilities_8h_af813a43f797e4be565a1d8203af684e7a01010a6876bab1c970989acd05cb2022}{CHECKING\+\_\+\+ACCOUNT}} = 1
@@ -236,6 +240,18 @@ CLOSE\+\_\+\+ACCOUNT&Close a customer\textquotesingle{}s account. \\
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{HISTORY@{HISTORY}!UIUtilities.h@{UIUtilities.h}}\index{UIUtilities.h@{UIUtilities.h}!HISTORY@{HISTORY}}}\Hypertarget{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60}\label{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60} 
 HISTORY&View transaction history for a customer\textquotesingle{}s account. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNDO@{UNDO}!UIUtilities.h@{UIUtilities.h}}\index{UIUtilities.h@{UIUtilities.h}!UNDO@{UNDO}}}\Hypertarget{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba22a937c23ef109ac28176b98dacad9c6}\label{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba22a937c23ef109ac28176b98dacad9c6} 
+UNDO&Undo the last transaction. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HELP@{HELP}!UIUtilities.h@{UIUtilities.h}}\index{UIUtilities.h@{UIUtilities.h}!HELP@{HELP}}}\Hypertarget{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba9f5cb747b2e1f0ea781d2b1f2a5b4824}\label{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba9f5cb747b2e1f0ea781d2b1f2a5b4824} 
+HELP&Submit a help request for customer support. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LOGOUT@{LOGOUT}!UIUtilities.h@{UIUtilities.h}}\index{UIUtilities.h@{UIUtilities.h}!LOGOUT@{LOGOUT}}}\Hypertarget{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70}\label{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70} 
+LOGOUT&\\
 \hline
 
 \end{DoxyEnumFields}

@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Banking CLI Application", "index.html", [
+  [ "CLI Banking Application", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

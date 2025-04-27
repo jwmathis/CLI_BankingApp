@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Banking CLI Application: Banking App Final Project/Source/UIUtilities.h File Reference</title>
+<title>CLI Banking Application: Banking App Final Project/UIUtilities.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Banking CLI Application<span id="projectnumber">&#160;000</span>
+   <div id="projectname">CLI Banking Application<span id="projectnumber">&#160;000</span>
    </div>
    <div id="projectbrief">A comprehensive command-line banking application built in C++.</div>
   </td>
@@ -158,7 +158,7 @@ Enumerations</h2></td></tr>
 <tr class="memdesc:a738419ee04f7ab8147651b3c9cc05bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents options in the main menu of the banking application.  <a href="#a738419ee04f7ab8147651b3c9cc05bdc">More...</a><br /></td></tr>
 <tr class="separator:a738419ee04f7ab8147651b3c9cc05bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a086635c6f3d8496cfed28c79353ef75b" id="r_a086635c6f3d8496cfed28c79353ef75b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a086635c6f3d8496cfed28c79353ef75b">CustomerMenuOption</a> { <br />
-&#160;&#160;<a class="el" href="#a086635c6f3d8496cfed28c79353ef75ba0c60b378e8d76bd870716514a2885b40">NEW_ACCOUNT</a> = 1
+&#160;&#160;<a class="el" href="#a086635c6f3d8496cfed28c79353ef75ba0c60b378e8d76bd870716514a2885b40">NEW_ACCOUNT</a> = 0
 , <a class="el" href="#a086635c6f3d8496cfed28c79353ef75bae90e8d829638e97b3330069997f379c8">BALANCE_INQUIRY</a>
 , <a class="el" href="#a086635c6f3d8496cfed28c79353ef75ba8141041378ff74414ef2652b7af75bd8">DEPOSIT_AMOUNT</a>
 , <a class="el" href="#a086635c6f3d8496cfed28c79353ef75baff72eda42689908b990650bc56b9895c">WITHDRAW_AMOUNT</a>
@@ -166,6 +166,10 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#a086635c6f3d8496cfed28c79353ef75ba0104f3859cf661b867ad9188954f8f98">TRANSFER_AMOUNT</a>
 , <a class="el" href="#a086635c6f3d8496cfed28c79353ef75bacfaf2d85f1e078c1f877574196f07ae8">CLOSE_ACCOUNT</a>
 , <a class="el" href="#a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60">HISTORY</a>
+, <a class="el" href="#a086635c6f3d8496cfed28c79353ef75ba22a937c23ef109ac28176b98dacad9c6">UNDO</a>
+, <br />
+&#160;&#160;<a class="el" href="#a086635c6f3d8496cfed28c79353ef75ba9f5cb747b2e1f0ea781d2b1f2a5b4824">HELP</a>
+, <a class="el" href="#a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70">LOGOUT</a>
 <br />
  }</td></tr>
 <tr class="memdesc:a086635c6f3d8496cfed28c79353ef75b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents options available in the customer's menu.  <a href="#a086635c6f3d8496cfed28c79353ef75b">More...</a><br /></td></tr>
@@ -421,6 +425,11 @@ Variables</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60" name="a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60"></a>HISTORY&#160;</td><td class="fielddoc"><p>View transaction history for a customer's account. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a086635c6f3d8496cfed28c79353ef75ba22a937c23ef109ac28176b98dacad9c6" name="a086635c6f3d8496cfed28c79353ef75ba22a937c23ef109ac28176b98dacad9c6"></a>UNDO&#160;</td><td class="fielddoc"><p>Undo the last transaction. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a086635c6f3d8496cfed28c79353ef75ba9f5cb747b2e1f0ea781d2b1f2a5b4824" name="a086635c6f3d8496cfed28c79353ef75ba9f5cb747b2e1f0ea781d2b1f2a5b4824"></a>HELP&#160;</td><td class="fielddoc"><p>Submit a help request for customer support. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70" name="a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70"></a>LOGOUT&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -822,7 +831,7 @@ template&lt;typename T&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3a8eae0c8745b45c7172c4df7d0db5f7.html">Banking App Final Project</a></li><li class="navelem"><a class="el" href="dir_72ddcc736d937a75c411616cd04b64c8.html">Source</a></li><li class="navelem"><a class="el" href="_u_i_utilities_8h.html">UIUtilities.h</a></li>
+    <li class="navelem"><a class="el" href="dir_3a8eae0c8745b45c7172c4df7d0db5f7.html">Banking App Final Project</a></li><li class="navelem"><a class="el" href="_u_i_utilities_8h.html">UIUtilities.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

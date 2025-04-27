@@ -4,8 +4,7 @@
 #include <vector>
 #include "Account.h"
 #include "sqlite3.h"
-#include <stack>
-#include <queue>
+#include "StructuresAndAlgorithms.h"
 using namespace std;
 
 /**
@@ -46,8 +45,8 @@ private:
     };
 
     Transaction* transactionHead; ///< Head pointer for the transaction history linked list.
-    stack<Transaction*> undoStack; ///< Stack to store transactions for undo functionality.
-    queue<string> helpRequestQueue; ///< Queue to manage customer help requests.
+    CustomStack<Transaction*> undoStack; ///< Stack to store transactions for undo functionality.
+    CustomQueue<string> helpRequestQueue; ///< Queue to manage customer help requests.
 
 public:
     /**
@@ -141,7 +140,7 @@ public:
      * @brief Retrieves all help requests from the customer's queue.
      * @return A queue containing all help requests.
      */
-    queue<std::string> getHelpRequests();
+    CustomQueue<string>& getHelpRequests();
 
     /**
      * @brief Displays the customer's transaction history.

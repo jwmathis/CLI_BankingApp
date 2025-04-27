@@ -5,6 +5,7 @@
 #include "UIUtilities.h"
 #include "Customer.h"
 #include "SavingsAccount.h"
+#include "graph.h"
 #include <ftxui/component/component.hpp> // For button, input, renderer, container, etc
 #include <ftxui/component/screen_interactive.hpp> // For ScreenInteractive
 #include <ftxui/dom/elements.hpp> // For bold, border, text, separator, etc
@@ -389,6 +390,8 @@ void customerMenu(Customer* customer, Bank& bank) {
 		"7. Display Transaction History",
 		"8. Undo Last Transaction",
 		"9. Submit Help Request",
+		"10. Logout",
+		"11. Test",
 	};
 
 	bool whileFlag = true;
@@ -432,7 +435,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 		system("cls");
 		screen.Loop(renderer);
 		while (!isLoggedOut) {
-			selected += 1;
+			//selected += 1;
 			switch (selected) {
 			case NEW_ACCOUNT: {
 				system("cls");
@@ -555,7 +558,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 				// Run the screen loop.
 				screen.Loop(renderer);
-				system("pause");
+				//system("pause");
 				break;
 			}
 
@@ -662,7 +665,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 				// Run the screen loop.
 				screen.Loop(renderer);
-				system("pause");
+				//system("pause");
 				break;
 			}
 			case TRANSFER_AMOUNT: {
@@ -792,7 +795,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 				// Run the screen loop.
 				screen.Loop(renderer);
-				system("pause");
+				//system("pause");
 				break;
 			}
 
@@ -905,16 +908,16 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 				// Run the screen loop.
 				screen.Loop(renderer);
-				system("pause");
+				//system("pause");
 				break;
 			}
 			case HISTORY: {
 				customer->displayTransactionHistory();
-				system("pause");
+				//system("pause");
 				break;
 			}
 
-			case 8: {
+			case UNDO: {
 				// Submit request to undo transaction
 				system("cls");
 				auto screen = ScreenInteractive::TerminalOutput();
@@ -950,17 +953,21 @@ void customerMenu(Customer* customer, Bank& bank) {
 				break;
 			}
 
-			case 9: {
+			case HELP: {
 				system("cls");
 				auto screen = ScreenInteractive::TerminalOutput();
 				std::string helpRequest = "";
 				std::string statusMessage = "";
 				int selectedIndex = 0; // Index for selecting requests to delete
 
+				Customer customer; // Create a customer
+
 				// Fetch help requests from the customer
 				auto fetchHelpRequests = [&]() -> std::vector<std::string> {
 					std::vector<std::string> requests;
-					std::queue<std::string> tempQueue = customer->getHelpRequests();
+					CustomQueue<std::string>& queueRef = customer.getHelpRequests();
+					CustomQueue<std::string> tempQueue = queueRef;
+
 					while (!tempQueue.empty()) {
 						requests.push_back(tempQueue.front());
 						tempQueue.pop();
@@ -976,7 +983,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 				// Buttons
 				auto submitRequestButton = Button("Submit Request", [&] {
 					if (!helpRequest.empty()) {
-						customer->addHelpRequest(helpRequest);
+						customer.addHelpRequest(helpRequest);
 						statusMessage = "Your request has been submitted.";
 						helpRequest = ""; // Clear input
 						helpRequests = fetchHelpRequests(); // Refresh the request list
@@ -988,7 +995,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 				auto deleteRequestButton = Button("Delete Selected Request", [&] {
 					if (!helpRequests.empty() && selectedIndex >= 0 && selectedIndex < helpRequests.size()) {
-						customer->removeHelpRequest();
+						customer.removeHelpRequest();
 						statusMessage = "Request deleted successfully.";
 						helpRequests = fetchHelpRequests(); // Refresh the request list
 						selectedIndex = 0; // Reset selection
@@ -998,7 +1005,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 					}
 					});
 
-				auto exitButton = Button("Exit", [&] { screen.Exit(); });
+				auto exitButton = Button("Back", [&] { screen.Exit(); });
 
 				// Request List Renderer
 				auto requestListRenderer = Renderer([&] {
@@ -1062,7 +1069,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 				break;
 			}
 
-			case 10: {
+			case LOGOUT: {
 				system("cls");
 				auto screen = ScreenInteractive::TerminalOutput();
 
@@ -1107,13 +1114,29 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 				// Run the screen loop
 				screen.Loop(renderer);
+				//system("pause");
+				break;
+			}
+			case TEST: {
+				int n = 4;
+				// Create a graph with 4 vertices
+				Graph g(n);
+
+				// Adding the specified edges in the graph
+				g.add_edge(0, 1);
+				g.add_edge(0, 2);
+				g.add_edge(1, 3);
+				g.add_edge(2, 3);
+
+				g.print();
 				system("pause");
 				break;
 			}
 
-			default:
+			default: 
 				break;
 			}
+			break; // Exit the loop
 		}
 	}
 }

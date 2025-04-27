@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Banking CLI Application: Banking App Final Project/Source/Admin.h File Reference</title>
+<title>CLI Banking Application: Banking App Final Project/Admin.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,7 +32,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Banking CLI Application<span id="projectnumber">&#160;000</span>
+   <div id="projectname">CLI Banking Application<span id="projectnumber">&#160;000</span>
    </div>
    <div id="projectbrief">A comprehensive command-line banking application built in C++.</div>
   </td>
@@ -111,13 +111,13 @@ $(function(){initNavTree('_admin_8h.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &quot;<a class="el" href="_bank_8h_source.html">Bank.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_transfer_8h_source.html">Transfer.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_account_8h_source.html">Account.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_customer_8h_source.html">Customer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_bank_8h_source.html">Bank.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_q_lite_functions_8h_source.html">SQLiteFunctions.h</a>&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
 </div>
 <p><a href="_admin_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -131,71 +131,25 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6a9cb61e5783921dc452896edc2aee37" id="r_a6a9cb61e5783921dc452896edc2aee37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a9cb61e5783921dc452896edc2aee37">merge</a> (std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, int low, int mid, int high)</td></tr>
-<tr class="memdesc:a6a9cb61e5783921dc452896edc2aee37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges two halves of a vector of accounts, sorted by balance.  <br /></td></tr>
-<tr class="separator:a6a9cb61e5783921dc452896edc2aee37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a715509412ca88e057e65b49c47898809" id="r_a715509412ca88e057e65b49c47898809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a715509412ca88e057e65b49c47898809">merge_recurse</a> (std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, int low, int high)</td></tr>
-<tr class="memdesc:a715509412ca88e057e65b49c47898809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively performs merge sort on a vector of accounts.  <br /></td></tr>
-<tr class="separator:a715509412ca88e057e65b49c47898809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad62e53928b6bbb26d9644fad46f16b27" id="r_ad62e53928b6bbb26d9644fad46f16b27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad62e53928b6bbb26d9644fad46f16b27">mergeSort</a> (std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, int length)</td></tr>
-<tr class="memdesc:ad62e53928b6bbb26d9644fad46f16b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a vector of accounts using merge sort.  <br /></td></tr>
-<tr class="separator:ad62e53928b6bbb26d9644fad46f16b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92c9d4cc7de17a4e74c767b944bba5b9" id="r_a92c9d4cc7de17a4e74c767b944bba5b9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92c9d4cc7de17a4e74c767b944bba5b9">findLowerBound</a> (const std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, double minBalance)</td></tr>
-<tr class="memdesc:a92c9d4cc7de17a4e74c767b944bba5b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the lower bound of an account balance in a sorted vector using binary search.  <br /></td></tr>
-<tr class="separator:a92c9d4cc7de17a4e74c767b944bba5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1e3e1c601b5a4808728419836ac373b" id="r_af1e3e1c601b5a4808728419836ac373b"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e3e1c601b5a4808728419836ac373b">getAccountsInBalanceRange</a> (std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, double minBalance, double maxBalance)</td></tr>
-<tr class="memdesc:af1e3e1c601b5a4808728419836ac373b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves accounts within a specified balance range.  <br /></td></tr>
-<tr class="separator:af1e3e1c601b5a4808728419836ac373b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a413623c154276e5f645cd3d1ad2c9f" id="r_a3a413623c154276e5f645cd3d1ad2c9f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a413623c154276e5f645cd3d1ad2c9f">merge</a> (vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, int low, int mid, int high)</td></tr>
-<tr class="memdesc:a3a413623c154276e5f645cd3d1ad2c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges two halves of a vector of accounts during sorting.  <br /></td></tr>
+<tr class="memdesc:a3a413623c154276e5f645cd3d1ad2c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges two halves of a vector of accounts, sorted by balance.  <br /></td></tr>
 <tr class="separator:a3a413623c154276e5f645cd3d1ad2c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dc81fb7250b9e4936a65bcf24a8787d" id="r_a2dc81fb7250b9e4936a65bcf24a8787d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2dc81fb7250b9e4936a65bcf24a8787d">merge_recurse</a> (vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, int low, int high)</td></tr>
-<tr class="memdesc:a2dc81fb7250b9e4936a65bcf24a8787d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively splits and merges a vector of accounts for merge sort.  <br /></td></tr>
+<tr class="memdesc:a2dc81fb7250b9e4936a65bcf24a8787d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively performs merge sort on a vector of accounts.  <br /></td></tr>
 <tr class="separator:a2dc81fb7250b9e4936a65bcf24a8787d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a790b527353354f26f37d37e7a258a3f9" id="r_a790b527353354f26f37d37e7a258a3f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a790b527353354f26f37d37e7a258a3f9">mergeSort</a> (vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, int length)</td></tr>
-<tr class="memdesc:a790b527353354f26f37d37e7a258a3f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs merge sort on a vector of accounts.  <br /></td></tr>
+<tr class="memdesc:a790b527353354f26f37d37e7a258a3f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts a vector of accounts using merge sort.  <br /></td></tr>
 <tr class="separator:a790b527353354f26f37d37e7a258a3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a067ce5037185b1ffb5c8fc3ee3e7cf88" id="r_a067ce5037185b1ffb5c8fc3ee3e7cf88"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a067ce5037185b1ffb5c8fc3ee3e7cf88">findLowerBound</a> (const vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, double minBalance)</td></tr>
-<tr class="memdesc:a067ce5037185b1ffb5c8fc3ee3e7cf88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the index of the first account with a balance &gt;= minBalance.  <br /></td></tr>
+<tr class="memdesc:a067ce5037185b1ffb5c8fc3ee3e7cf88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the lower bound of an account balance in a sorted vector using binary search.  <br /></td></tr>
 <tr class="separator:a067ce5037185b1ffb5c8fc3ee3e7cf88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae18b6b70f3ed17cd0e4272110bc7bd63" id="r_ae18b6b70f3ed17cd0e4272110bc7bd63"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae18b6b70f3ed17cd0e4272110bc7bd63">getAccountsInBalanceRange</a> (vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;accounts, double minBalance, double maxBalance)</td></tr>
 <tr class="memdesc:ae18b6b70f3ed17cd0e4272110bc7bd63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves accounts within a specified balance range.  <br /></td></tr>
 <tr class="separator:ae18b6b70f3ed17cd0e4272110bc7bd63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a92c9d4cc7de17a4e74c767b944bba5b9" name="a92c9d4cc7de17a4e74c767b944bba5b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92c9d4cc7de17a4e74c767b944bba5b9">&#9670;&#160;</a></span>findLowerBound() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int findLowerBound </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>accounts</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>minBalance</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Finds the lower bound of an account balance in a sorted vector using binary search. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accounts</td><td>The sorted vector of accounts. </td></tr>
-    <tr><td class="paramname">minBalance</td><td>The minimum balance to search for. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The index of the first account with a balance &gt;= minBalance, or -1 if not found. </dd></dl>
-
-</div>
-</div>
 <a id="a067ce5037185b1ffb5c8fc3ee3e7cf88" name="a067ce5037185b1ffb5c8fc3ee3e7cf88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a067ce5037185b1ffb5c8fc3ee3e7cf88">&#9670;&#160;</a></span>findLowerBound() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a067ce5037185b1ffb5c8fc3ee3e7cf88">&#9670;&#160;</a></span>findLowerBound()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -221,7 +175,16 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Finds the index of the first account with a balance &gt;= minBalance. </p>
+<p>Finds the lower bound of an account balance in a sorted vector using binary search. </p>
+<p>Finds the index of the first account with a balance &gt;= minBalance.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">accounts</td><td>The sorted vector of accounts. </td></tr>
+    <tr><td class="paramname">minBalance</td><td>The minimum balance to search for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the first account with a balance &gt;= minBalance, or -1 if not found.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">accounts</td><td>The sorted vector of accounts. </td></tr>
@@ -233,45 +196,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af1e3e1c601b5a4808728419836ac373b" name="af1e3e1c601b5a4808728419836ac373b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1e3e1c601b5a4808728419836ac373b">&#9670;&#160;</a></span>getAccountsInBalanceRange() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; getAccountsInBalanceRange </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>accounts</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>minBalance</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>maxBalance</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves accounts within a specified balance range. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accounts</td><td>The vector of accounts to filter. </td></tr>
-    <tr><td class="paramname">minBalance</td><td>The minimum balance of the range. </td></tr>
-    <tr><td class="paramname">maxBalance</td><td>The maximum balance of the range. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of accounts within the specified balance range. </dd></dl>
-
-</div>
-</div>
 <a id="ae18b6b70f3ed17cd0e4272110bc7bd63" name="ae18b6b70f3ed17cd0e4272110bc7bd63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae18b6b70f3ed17cd0e4272110bc7bd63">&#9670;&#160;</a></span>getAccountsInBalanceRange() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae18b6b70f3ed17cd0e4272110bc7bd63">&#9670;&#160;</a></span>getAccountsInBalanceRange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,6 +229,15 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves accounts within a specified balance range. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">accounts</td><td>The vector of accounts to filter. </td></tr>
+    <tr><td class="paramname">minBalance</td><td>The minimum balance of the range. </td></tr>
+    <tr><td class="paramname">maxBalance</td><td>The maximum balance of the range. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of accounts within the specified balance range.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">accounts</td><td>The vector of accounts. </td></tr>
@@ -315,50 +250,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6a9cb61e5783921dc452896edc2aee37" name="a6a9cb61e5783921dc452896edc2aee37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a9cb61e5783921dc452896edc2aee37">&#9670;&#160;</a></span>merge() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void merge </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>accounts</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>mid</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>high</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Merges two halves of a vector of accounts, sorted by balance. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accounts</td><td>The vector of accounts. </td></tr>
-    <tr><td class="paramname">low</td><td>The starting index of the first half. </td></tr>
-    <tr><td class="paramname">mid</td><td>The ending index of the first half. </td></tr>
-    <tr><td class="paramname">high</td><td>The ending index of the second half. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a3a413623c154276e5f645cd3d1ad2c9f" name="a3a413623c154276e5f645cd3d1ad2c9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a413623c154276e5f645cd3d1ad2c9f">&#9670;&#160;</a></span>merge() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a413623c154276e5f645cd3d1ad2c9f">&#9670;&#160;</a></span>merge()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -394,9 +287,14 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Merges two halves of a vector of accounts during sorting. </p>
+<p>Merges two halves of a vector of accounts, sorted by balance. </p>
+<p>Merges two halves of a vector of accounts during sorting.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">accounts</td><td>The vector of accounts. </td></tr>
+    <tr><td class="paramname">low</td><td>The starting index of the first half. </td></tr>
+    <tr><td class="paramname">mid</td><td>The ending index of the first half. </td></tr>
+    <tr><td class="paramname">high</td><td>The ending index of the second half.</td></tr>
     <tr><td class="paramname">accounts</td><td>The vector of accounts to merge. </td></tr>
     <tr><td class="paramname">low</td><td>The starting index of the first half. </td></tr>
     <tr><td class="paramname">mid</td><td>The ending index of the first half. </td></tr>
@@ -407,44 +305,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a715509412ca88e057e65b49c47898809" name="a715509412ca88e057e65b49c47898809"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a715509412ca88e057e65b49c47898809">&#9670;&#160;</a></span>merge_recurse() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void merge_recurse </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>accounts</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>high</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Recursively performs merge sort on a vector of accounts. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accounts</td><td>The vector of accounts. </td></tr>
-    <tr><td class="paramname">low</td><td>The starting index. </td></tr>
-    <tr><td class="paramname">high</td><td>The ending index. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a2dc81fb7250b9e4936a65bcf24a8787d" name="a2dc81fb7250b9e4936a65bcf24a8787d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dc81fb7250b9e4936a65bcf24a8787d">&#9670;&#160;</a></span>merge_recurse() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dc81fb7250b9e4936a65bcf24a8787d">&#9670;&#160;</a></span>merge_recurse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -475,42 +337,13 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Recursively splits and merges a vector of accounts for merge sort. </p>
+<p>Recursively performs merge sort on a vector of accounts. </p>
+<p>Recursively splits and merges a vector of accounts for merge sort.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">accounts</td><td>The vector of accounts. </td></tr>
     <tr><td class="paramname">low</td><td>The starting index. </td></tr>
     <tr><td class="paramname">high</td><td>The ending index. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ad62e53928b6bbb26d9644fad46f16b27" name="ad62e53928b6bbb26d9644fad46f16b27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad62e53928b6bbb26d9644fad46f16b27">&#9670;&#160;</a></span>mergeSort() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void mergeSort </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="struct_bank_1_1acc.html">Bank::acc</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>accounts</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sorts a vector of accounts using merge sort. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accounts</td><td>The vector of accounts to sort. </td></tr>
-    <tr><td class="paramname">length</td><td>The number of accounts in the vector. </td></tr>
   </table>
   </dd>
 </dl>
@@ -518,7 +351,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a790b527353354f26f37d37e7a258a3f9" name="a790b527353354f26f37d37e7a258a3f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a790b527353354f26f37d37e7a258a3f9">&#9670;&#160;</a></span>mergeSort() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a790b527353354f26f37d37e7a258a3f9">&#9670;&#160;</a></span>mergeSort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -544,9 +377,12 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Performs merge sort on a vector of accounts. </p>
+<p>Sorts a vector of accounts using merge sort. </p>
+<p>Performs merge sort on a vector of accounts.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">accounts</td><td>The vector of accounts to sort. </td></tr>
+    <tr><td class="paramname">length</td><td>The number of accounts in the vector.</td></tr>
     <tr><td class="paramname">accounts</td><td>The vector of accounts to sort. </td></tr>
     <tr><td class="paramname">length</td><td>The number of elements in the vector. </td></tr>
   </table>
@@ -560,7 +396,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_3a8eae0c8745b45c7172c4df7d0db5f7.html">Banking App Final Project</a></li><li class="navelem"><a class="el" href="dir_72ddcc736d937a75c411616cd04b64c8.html">Source</a></li><li class="navelem"><a class="el" href="_admin_8h.html">Admin.h</a></li>
+    <li class="navelem"><a class="el" href="dir_3a8eae0c8745b45c7172c4df7d0db5f7.html">Banking App Final Project</a></li><li class="navelem"><a class="el" href="_admin_8h.html">Admin.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

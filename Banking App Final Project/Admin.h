@@ -1,13 +1,14 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <iostream>
+#include "Bank.h"
 #include "Transfer.h"
 #include "Account.h"
 #include "Customer.h"
-#include "Bank.h"
 #include "SQLiteFunctions.h"
-#include <iostream>
-#include <algorithm>
+
 using namespace std;
 
 /**
@@ -18,7 +19,7 @@ using namespace std;
  * @param mid The ending index of the first half.
  * @param high The ending index of the second half.
  */
-void merge(std::vector<Bank::acc>& accounts, int low, int mid, int high);
+void merge(vector<Bank::acc>& accounts, int low, int mid, int high);
 
 /**
  * @brief Recursively performs merge sort on a vector of accounts.
@@ -27,7 +28,7 @@ void merge(std::vector<Bank::acc>& accounts, int low, int mid, int high);
  * @param low The starting index.
  * @param high The ending index.
  */
-void merge_recurse(std::vector<Bank::acc>& accounts, int low, int high);
+void merge_recurse(vector<Bank::acc>& accounts, int low, int high);
 
 /**
  * @brief Sorts a vector of accounts using merge sort.
@@ -35,7 +36,7 @@ void merge_recurse(std::vector<Bank::acc>& accounts, int low, int high);
  * @param accounts The vector of accounts to sort.
  * @param length The number of accounts in the vector.
  */
-void mergeSort(std::vector<Bank::acc>& accounts, int length);
+void mergeSort(vector<Bank::acc>& accounts, int length);
 
 /**
  * @brief Finds the lower bound of an account balance in a sorted vector using binary search.
@@ -44,7 +45,7 @@ void mergeSort(std::vector<Bank::acc>& accounts, int length);
  * @param minBalance The minimum balance to search for.
  * @return The index of the first account with a balance >= minBalance, or -1 if not found.
  */
-int findLowerBound(const std::vector<Bank::acc>& accounts, double minBalance);
+int findLowerBound(const vector<Bank::acc>& accounts, double minBalance);
 
 /**
  * @brief Retrieves accounts within a specified balance range.
@@ -54,7 +55,7 @@ int findLowerBound(const std::vector<Bank::acc>& accounts, double minBalance);
  * @param maxBalance The maximum balance of the range.
  * @return A vector of accounts within the specified balance range.
  */
-vector<Bank::acc> getAccountsInBalanceRange(std::vector<Bank::acc>& accounts, double minBalance, double maxBalance);
+vector<Bank::acc> getAccountsInBalanceRange(vector<Bank::acc>& accounts, double minBalance, double maxBalance);
 
 /**
  * @brief Represents a node in the binary search tree for storing accounts.
@@ -72,6 +73,7 @@ struct TreeNode {
      */
     TreeNode(Bank::acc acc) : account(acc), left(nullptr), right(nullptr) {}
 };
+
 
 class AccountBST {
 private:
@@ -279,7 +281,7 @@ inline int findLowerBound(const vector<Bank::acc>& accounts, double minBalance) 
  * @return A vector of accounts within the specified range.
  */
 inline vector<Bank::acc> getAccountsInBalanceRange(vector<Bank::acc>& accounts, double minBalance, double maxBalance) {
-    std::sort(accounts.begin(), accounts.end(), [](const Bank::acc& a, const Bank::acc& b) {
+    sort(accounts.begin(), accounts.end(), [](const Bank::acc& a, const Bank::acc& b) {
         return a.balance < b.balance; // Compare based on balance
         });
     //mergeSort(accounts, accounts.size());

@@ -8,6 +8,8 @@ var searchData=
   ['setaccountto_5',['setAccountTo',['../class_transfer.html#adbb54290a9de0c6fbe80ef362b81f78a',1,'Transfer']]],
   ['setamount_6',['setAmount',['../class_transfer.html#a9eba2049014ce60624ec55206e102744',1,'Transfer']]],
   ['showalltables_7',['showAllTables',['../_s_q_lite_functions_8cpp.html#ab860bea8c445a14acb8fb12d231cf4d7',1,'showAllTables(const char *s):&#160;SQLiteFunctions.cpp'],['../_s_q_lite_functions_8h.html#ab860bea8c445a14acb8fb12d231cf4d7',1,'showAllTables(const char *s):&#160;SQLiteFunctions.cpp']]],
-  ['sqlitefunctions_2ecpp_8',['SQLiteFunctions.cpp',['../_s_q_lite_functions_8cpp.html',1,'']]],
-  ['sqlitefunctions_2eh_9',['SQLiteFunctions.h',['../_s_q_lite_functions_8h.html',1,'']]]
+  ['size_8',['size',['../class_custom_queue.html#a734f21789c2647bdb9b155ff8617bee5',1,'CustomQueue']]],
+  ['sqlitefunctions_2ecpp_9',['SQLiteFunctions.cpp',['../_s_q_lite_functions_8cpp.html',1,'']]],
+  ['sqlitefunctions_2eh_10',['SQLiteFunctions.h',['../_s_q_lite_functions_8h.html',1,'']]],
+  ['structuresandalgorithms_2eh_11',['StructuresAndAlgorithms.h',['../_structures_and_algorithms_8h.html',1,'']]]
 ];

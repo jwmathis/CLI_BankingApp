@@ -105,18 +105,9 @@ bool Customer::removeHelpRequest() {
 	helpRequestQueue.pop();
 	return true;
 }
-queue<std::string> Customer::getHelpRequests() {
+CustomQueue<string>& Customer::getHelpRequests() {
 
-	queue<std::string> tempQueue = helpRequestQueue;
-
-	if (tempQueue.empty()) {
-		return tempQueue;;
-	}
-	else {
-		return tempQueue;
-	}
-
-	
+	return helpRequestQueue;
 }
 
 void Customer::displayTransactionHistory() {

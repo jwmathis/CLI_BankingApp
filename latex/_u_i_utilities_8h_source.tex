@@ -1,5 +1,5 @@
 \doxysection{UIUtilities.\+h}
-\hypertarget{_u_i_utilities_8h_source}{}\label{_u_i_utilities_8h_source}\index{Banking App Final Project/Source/UIUtilities.h@{Banking App Final Project/Source/UIUtilities.h}}
+\hypertarget{_u_i_utilities_8h_source}{}\label{_u_i_utilities_8h_source}\index{Banking App Final Project/UIUtilities.h@{Banking App Final Project/UIUtilities.h}}
 \mbox{\hyperlink{_u_i_utilities_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -31,50 +31,53 @@
 \DoxyCodeLine{00031\ \};}
 \DoxyCodeLine{00032\ }
 \DoxyCodeLine{00037\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75b}{CustomerMenuOption}}\ \{}
-\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba0c60b378e8d76bd870716514a2885b40}{NEW\_ACCOUNT}}\ =\ 1,\ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba0c60b378e8d76bd870716514a2885b40}{NEW\_ACCOUNT}}\ =\ 0,\ \ \ \ \ }
 \DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75bae90e8d829638e97b3330069997f379c8}{BALANCE\_INQUIRY}},\ \ \ \ \ }
 \DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba8141041378ff74414ef2652b7af75bd8}{DEPOSIT\_AMOUNT}},\ \ \ \ \ \ }
 \DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75baff72eda42689908b990650bc56b9895c}{WITHDRAW\_AMOUNT}},\ \ \ \ \ }
 \DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba0104f3859cf661b867ad9188954f8f98}{TRANSFER\_AMOUNT}},\ \ \ \ \ }
 \DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75bacfaf2d85f1e078c1f877574196f07ae8}{CLOSE\_ACCOUNT}},\ \ \ \ \ \ \ }
 \DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60}{HISTORY}},\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00045\ \};}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00051\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_u_i_utilities_8h_af813a43f797e4be565a1d8203af684e7}{AccountTypeOption}}\ \{}
-\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_af813a43f797e4be565a1d8203af684e7a01010a6876bab1c970989acd05cb2022}{CHECKING\_ACCOUNT}}\ =\ 1,\ }
-\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_af813a43f797e4be565a1d8203af684e7a2cacdc924dc3411b4a5eba7d2d871457}{SAVINGS\_ACCOUNT}}\ \ \ \ \ \ \ }
-\DoxyCodeLine{00054\ \};}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{comment}{//\ Constants}}
-\DoxyCodeLine{00060\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{_u_i_utilities_8h_aafd11c28bf60a7190c0e6abcdbd15265}{WELCOME\_MESSAGE}}\ =\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Welcome\ to\ Mercer\ Money\ Banking!"{}};}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00065\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{_u_i_utilities_8h_a03c96b67322aa595761cb5a7490e5da6}{INVALID\_OPTION}}\ =\ \textcolor{stringliteral}{"{}Invalid\ option.\ Please\ try\ again."{}};}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \textcolor{comment}{//\ Function\ declarations}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00074\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a9149bcc89b93efb83f8be1c691085ab2}{displayCustomerAccountsMenu}}(\mbox{\hyperlink{class_bank}{Bank}}\&\ bank,\ \mbox{\hyperlink{class_customer}{Customer}}*\ customer);}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a8d4b63c555445cb84ad57cb03e6f0b76}{registerCustomer}}(\mbox{\hyperlink{class_bank}{Bank}}\&\ bank);}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00087\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_u_i_utilities_8h_a9ee28c30679cbda57b7bda5e4a2583bd}{loginCustomer}}(\mbox{\hyperlink{class_bank}{Bank}}\&\ bank);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00095\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a82c910519f3e25f600287a5bce95c511}{customerMenu}}(\mbox{\hyperlink{class_customer}{Customer}}*\ customer,\ \mbox{\hyperlink{class_bank}{Bank}}\&\ bank);}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a56d8a3f3ebcfe5d3aa450a89dc724b62}{newCustomer}}(\mbox{\hyperlink{class_customer}{Customer}}*\ customer,\ \mbox{\hyperlink{class_bank}{Bank}}\&\ bank);}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_aec83085944d1af6b2ddfda322db2d630}{displayWelcomeAnimation}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a67e96e514d9f296c79378f7fbfba457a}{clearScreen}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a7af62343128c4880f1cb4b90f717bd2e}{moveToPosition}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_ac9b20a192dec32759d8f4d18e5042918}{printAnimatedDollarSign}}(\textcolor{keywordtype}{int}\ frame,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_aa6a60344db049f2139f4ccb2abbb7ca8}{printDollarSign}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a8a95ae933d589f7faeb433970cb976a9}{printMU}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00162\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{_u_i_utilities_8h_a8e2d2463e26874516078c7b1350939fa}{getRandomFruitEmoji}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba22a937c23ef109ac28176b98dacad9c6}{UNDO}},\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba9f5cb747b2e1f0ea781d2b1f2a5b4824}{HELP}},\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70}{LOGOUT}}}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_u_i_utilities_8h_af813a43f797e4be565a1d8203af684e7}{AccountTypeOption}}\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_af813a43f797e4be565a1d8203af684e7a01010a6876bab1c970989acd05cb2022}{CHECKING\_ACCOUNT}}\ =\ 1,\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{_u_i_utilities_8h_af813a43f797e4be565a1d8203af684e7a2cacdc924dc3411b4a5eba7d2d871457}{SAVINGS\_ACCOUNT}}\ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ Constants}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{_u_i_utilities_8h_aafd11c28bf60a7190c0e6abcdbd15265}{WELCOME\_MESSAGE}}\ =\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Welcome\ to\ Mercer\ Money\ Banking!"{}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{_u_i_utilities_8h_a03c96b67322aa595761cb5a7490e5da6}{INVALID\_OPTION}}\ =\ \textcolor{stringliteral}{"{}Invalid\ option.\ Please\ try\ again."{}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ Function\ declarations}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a9149bcc89b93efb83f8be1c691085ab2}{displayCustomerAccountsMenu}}(\mbox{\hyperlink{class_bank}{Bank}}\&\ bank,\ \mbox{\hyperlink{class_customer}{Customer}}*\ customer);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a8d4b63c555445cb84ad57cb03e6f0b76}{registerCustomer}}(\mbox{\hyperlink{class_bank}{Bank}}\&\ bank);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_u_i_utilities_8h_a9ee28c30679cbda57b7bda5e4a2583bd}{loginCustomer}}(\mbox{\hyperlink{class_bank}{Bank}}\&\ bank);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a82c910519f3e25f600287a5bce95c511}{customerMenu}}(\mbox{\hyperlink{class_customer}{Customer}}*\ customer,\ \mbox{\hyperlink{class_bank}{Bank}}\&\ bank);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a56d8a3f3ebcfe5d3aa450a89dc724b62}{newCustomer}}(\mbox{\hyperlink{class_customer}{Customer}}*\ customer,\ \mbox{\hyperlink{class_bank}{Bank}}\&\ bank);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_aec83085944d1af6b2ddfda322db2d630}{displayWelcomeAnimation}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a67e96e514d9f296c79378f7fbfba457a}{clearScreen}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a7af62343128c4880f1cb4b90f717bd2e}{moveToPosition}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_ac9b20a192dec32759d8f4d18e5042918}{printAnimatedDollarSign}}(\textcolor{keywordtype}{int}\ frame,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00147\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_aa6a60344db049f2139f4ccb2abbb7ca8}{printDollarSign}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_u_i_utilities_8h_a8a95ae933d589f7faeb433970cb976a9}{printMU}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{_u_i_utilities_8h_a8e2d2463e26874516078c7b1350939fa}{getRandomFruitEmoji}}(\textcolor{keywordtype}{void});}
 
 \end{DoxyCode}

@@ -35,13 +35,17 @@ enum MainMenuOption {
  * @brief Represents options available in the customer's menu.
  */
 enum CustomerMenuOption {
-    NEW_ACCOUNT = 1,     ///< Create a new account for the customer.
+    NEW_ACCOUNT = 0,     ///< Create a new account for the customer.
     BALANCE_INQUIRY,     ///< Check the balance of a customer's account.
     DEPOSIT_AMOUNT,      ///< Deposit an amount into a customer's account.
     WITHDRAW_AMOUNT,     ///< Withdraw an amount from a customer's account.
     TRANSFER_AMOUNT,     ///< Transfer an amount between accounts.
     CLOSE_ACCOUNT,       ///< Close a customer's account.
     HISTORY,             ///< View transaction history for a customer's account.
+	UNDO,               ///< Undo the last transaction.
+	HELP,        ///< Submit a help request for customer support.
+    LOGOUT,
+    TEST,
 };
 
 /**

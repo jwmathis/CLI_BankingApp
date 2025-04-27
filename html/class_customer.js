@@ -8,7 +8,7 @@ var class_customer =
     [ "displayTransactionHistory", "class_customer.html#a0b460506c6a2bc5a8a1cb3f67c25b7b6", null ],
     [ "generateTransactionReceipt", "class_customer.html#a255a84dfa66744e6f7689d4311dc8cd9", null ],
     [ "generateTransactionReceiptFilename", "class_customer.html#a6269396e204e3eafd14db372246ba7e1", null ],
-    [ "getHelpRequests", "class_customer.html#afef5cc4d290ef8500c14c33d5eb49180", null ],
+    [ "getHelpRequests", "class_customer.html#acf385f328a77da5bccd3b704a80ec17d", null ],
     [ "getId", "class_customer.html#acdbe83bbd49996e9a3b62820433b6f5d", null ],
     [ "getName", "class_customer.html#ab3b175c6e82d67d019d2619dc405e074", null ],
     [ "getUsername", "class_customer.html#ad12dd022ccf15b1e7aeb15001075bc80", null ],

@@ -20,7 +20,10 @@ var _u_i_utilities_8h =
       [ "WITHDRAW_AMOUNT", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75baff72eda42689908b990650bc56b9895c", null ],
       [ "TRANSFER_AMOUNT", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba0104f3859cf661b867ad9188954f8f98", null ],
       [ "CLOSE_ACCOUNT", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75bacfaf2d85f1e078c1f877574196f07ae8", null ],
-      [ "HISTORY", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60", null ]
+      [ "HISTORY", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60", null ],
+      [ "UNDO", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba22a937c23ef109ac28176b98dacad9c6", null ],
+      [ "HELP", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba9f5cb747b2e1f0ea781d2b1f2a5b4824", null ],
+      [ "LOGOUT", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70", null ]
     ] ],
     [ "MainMenuOption", "_u_i_utilities_8h.html#a738419ee04f7ab8147651b3c9cc05bdc", [
       [ "REGISTER", "_u_i_utilities_8h.html#a738419ee04f7ab8147651b3c9cc05bdcaceb7c305772dab23a260960771180df3", null ],
