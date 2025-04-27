@@ -43,20 +43,35 @@ A comprehensive command-line banking application built in C++, designed to provi
 
 1. Clone the repository:
 ```
-git clone https://github.com/jwmathis/SSE550_BankingApp.git
-cd SSE550_BankingApp
+git clone https://github.com/jwmathis/CLI_BankingApp.git
+cd CLI_BankingApp
 ```
 
 2. Install dependencies:
+    - Install FTXUI uisng vcpkg:
+    ```
+    ./vcpkg install ftxui
+    ```
+
     - Follow the instructions to set up FTXUI [here](https://github.com/ArthurSonzogni/FTXUI).
     - Ensure [SQLite3](https://www.sqlite.org/) is installed and properly linked. 
 
-3. Compile the application:
+3. Open the project in Visual Studio:
+    ```
+    code .
+    ```
 
-4. Run the application:
-```
-./SSE550_BankingApp
-```
+4. Configure the project with vcpkg:
+    ```
+    ./vcpkg integrate install
+    ```
+    - This will set up Visual Studio to use the libraries installed by vcpkg.
+
+5. Build the project:
+    - In Visual Studio, build the project by selecting Build > Build Solution or pressing Ctrl+Shift+B
+
+6. Run the application
+
 ---
 
 ## Usage

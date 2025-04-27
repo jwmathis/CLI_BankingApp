@@ -98,12 +98,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath); C:\Users\John Wesley\source\repos\SSE550_BankingApp\Banking App Final Project\SharedHeaderFi;C:\Tools\vcpkg\packages\ftxui_x64-windows\include;C:\Tools\vcpkg\packages\ftxui_x64-windows\lib</IncludePath>
+    <OutDir>$(SolutionDir)\bin\</OutDir>
+    <TargetName>CLI_BankingApp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Test|x64'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath); C:\Users\John Wesley\source\repos\SSE550_BankingApp\Banking App Final Project\SharedHeaderFi;C:\Tools\vcpkg\packages\ftxui_x64-windows\include;C:\Tools\vcpkg\packages\ftxui_x64-windows\lib</IncludePath>
+    <OutDir>$(SolutionDir)\bin\</OutDir>
+    <TargetName>CLI_BankingApp</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;C:\Tools\vcpkg\packages\ftxui_x64-windows\include;C:\Tools\vcpkg\packages\ftxui_x64-windows\lib</IncludePath>
+    <OutDir>$(SolutionDir)\bin\</OutDir>
+    <TargetName>CLI_BankingApp</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
