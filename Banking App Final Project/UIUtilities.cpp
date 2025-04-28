@@ -242,6 +242,7 @@ void newCustomer(Customer* customer, Bank& bank) {
 		if (bank.addAccountForCustomer(customer->getId(), to_string(accountNumber), initialBalance, selectedType)) {
 			// Display success message and account number
 			text("Your Account has been created! Your account number is: " + to_string(accountNumber));
+			cout<< "\n";
 			system("pause");
 			screen.Exit();
 		}
