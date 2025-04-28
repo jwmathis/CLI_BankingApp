@@ -646,7 +646,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 				// Renderer for the interface.
 				auto renderer = Renderer(layout, [&] {
 					return vbox({
-							   text("Deposit Amount") | bold | center,
+							   text("Withdraw Amount") | bold | center,
 							   separator(),
 							   text("Select an account:"),
 							   accountSelection->Render(),
@@ -1135,6 +1135,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 			default: 
 				break;
+			system("cls");
 			}
 			break; // Exit the loop
 		}
