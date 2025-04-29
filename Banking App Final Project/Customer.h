@@ -117,7 +117,7 @@ public:
      * @param amount The amount involved in the transaction.
      * @param timestamp The timestamp of the transaction.
      */
-    void addTransaction(const string& type, double amount, const string& timestamp);
+    void addTransaction(const string& type, double amount);
 
     /**
      * @brief Undoes the last transaction in the customer's history.

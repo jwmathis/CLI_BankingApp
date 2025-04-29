@@ -137,6 +137,7 @@ public:
      * @param acc The account to print.
      */
     void printAccount(const Bank::acc& acc) {
+        cout << "Account Holder: " << acc.accountHolder << "\n";
         cout << "Account ID: " << acc.accountId << "\n";
         cout << "User ID: " << acc.userId << "\n";
         cout << "Account Number: " << acc.accountNumber << "\n";

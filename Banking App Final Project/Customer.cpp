@@ -2,6 +2,10 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
 #include <ftxui/component/screen_interactive.hpp>
 #include <ftxui/dom/elements.hpp>
 #include <ftxui/component/component.hpp>
@@ -60,7 +64,23 @@ void Customer::generateTransactionReceipt(const string& transaction) {
 	}
 }
 
-void Customer::addTransaction(const string& type, double amount, const string& timestamp) {
+void Customer::addTransaction(const string& type, double amount) {
+
+	auto now = chrono::system_clock::now();
+	auto in_time_t = chrono::system_clock::to_time_t(now);
+
+	// Convert to a tm structure using localtime_s
+	std::tm localTime;
+	if (localtime_s(&localTime, &in_time_t) != 0) {
+		throw std::runtime_error("Failed to convert time");
+	}
+
+	// Format the timestamp as a string (e.g., "YYYY-MM-DD HH:MM:SS")
+	std::ostringstream oss;
+	oss << std::put_time(&localTime, "%Y-%m-%d %H:%M:%S");
+	std::string timestamp = oss.str();
+
+	// Create a new transaction and add it to the linked list
 	Transaction* newTransaction = new Transaction(type, amount, timestamp);
 	newTransaction->next = transactionHead;
 	transactionHead = newTransaction;

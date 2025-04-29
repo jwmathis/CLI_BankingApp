@@ -23,7 +23,7 @@
 using namespace std;
 using namespace ftxui;
 
-// Bank function declarations
+enum class ScrenState { MainMenu, Deposit};
 
 // Function to display customer accounts menu
 template <typename T>
@@ -118,12 +118,11 @@ void registerCustomer(Bank& bank) {
 			// If registration is successful, log the customer in and create a new account
 			Customer* customer = bank.login(username, pin);
 			if (customer) {
-				// Exit the registration screen
-				screen.Exit();
 				// Display success message
 				text("You've been registered " + customer->getName() + "! Thanks for signing up!");
 				// Create a new account for the registered customer
 				newCustomer(customer, bank);
+				customerMenu<double>(customer, bank);// Login customer to the banking system
 				// Exit the registration screen again (not sure why this is needed)
 				screen.Exit();
 			}
@@ -511,9 +510,9 @@ void customerMenu(Customer* customer, Bank& bank) {
 						accountSelected->deposit(depositAmount);
 						if (bank.updateAccountBalance(accountSelected->getId(), accountSelected->getBalance())) {
 							success_message = "\xE2\x9C\x85 Deposit successful! New balance: $" + std::to_string(accountSelected->getBalance());
-							customer->addTransaction("Deposit", depositAmount, "9999-99-99");
+							customer->addTransaction("Deposit", depositAmount);
 							customer->generateTransactionReceipt(success_message);
-							screen.Exit();
+							
 						}
 						else {
 							error_message = "\xE2\x9D\x8C Error: Failed to update account balance.";
@@ -525,21 +524,24 @@ void customerMenu(Customer* customer, Bank& bank) {
 					});
 
 				// Back button to cancel the deposit.
-				auto backButton = Button("Cancel", [&] {
+				auto cancelButton = Button("Cancel", [&] {
 					screen.Exit();
 					});
 
+				auto backButton = Button("Back to Home", [&] {
+					screen.Exit();
+					});
 				// Layout for the menu.
 				auto layout = Container::Vertical({
 					accountSelection,
 					depositInput,
 					submitButton,
-					backButton,
+					cancelButton,
 					});
 
 				// Renderer for the interface.
 				auto renderer = Renderer(layout, [&] {
-					return vbox({
+					auto mainUI = vbox({
 							   text("Deposit Amount") | bold | center,
 							   separator(),
 							   text("Select an account:"),
@@ -549,14 +551,22 @@ void customerMenu(Customer* customer, Bank& bank) {
 							   separator(),
 							   hbox({
 								   submitButton->Render() | center,
-								   backButton->Render() | center,
+								   cancelButton->Render() | center,
 							   }),
-							   success_message.empty() ? text("") : text(success_message) | color(Color::Green),
 							   error_message.empty() ? text("") : text(error_message) | color(Color::Red),
 						}) |
 						border;
-					});
+					// Success message and back button, displayed conditionally
+					/*if (!success_message.empty()) {
+						mainUI = vbox({
+							text(success_message) | color(Color::Green) | center,
+							separator(),
+							backButton->Render() | center,
+							});
+					}*/
 
+				return mainUI | border;
+			});
 				// Run the screen loop.
 				screen.Loop(renderer);
 				//system("pause");
@@ -618,7 +628,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 						accountSelected->withdraw(withdrawAmount);
 						if (bank.updateAccountBalance(accountSelected->getId(), accountSelected->getBalance())) {
 							success_message = "Withdrawal successful! New balance: $" + std::to_string(accountSelected->getBalance());
-							customer->addTransaction("Withdrawal", withdrawAmount, "9999-99-99");
+							customer->addTransaction("Withdrawal", withdrawAmount);
 							customer->generateTransactionReceipt(success_message);
 							screen.Exit();
 						}
@@ -737,7 +747,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 					if (senderAccount->getBalance() >= transferAmount) {
 						senderAccount->withdraw(transferAmount);
 						receiverAccount->deposit(transferAmount);
-						customer->addTransaction("Transfer", transferAmount, "9999-99-99");
+						customer->addTransaction("Transfer", transferAmount);
 
 						if (bank.updateAccountBalance(senderAccount->getId(), senderAccount->getBalance()) &&
 							bank.updateAccountBalance(receiverAccount->getId(), receiverAccount->getBalance())) {
@@ -932,7 +942,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 					confirmed = true;
 					});
 
-				auto cancelButton = Button("Cancel", [&] { screen.Exit(); });
+				auto cancelButton = Button("Back to Customer Menu", [&] { screen.Exit(); });
 				auto layout = Container::Vertical({
 					confirmButton,
 					cancelButton,

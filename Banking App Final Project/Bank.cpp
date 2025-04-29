@@ -249,24 +249,52 @@ vector <Bank::acc> Bank::fetchAccountsFromDatabase() {
 
 	vector<acc> accounts;
 	const char* sql = "SELECT account_id, user_id, account_number, balance, account_type FROM accounts";
-	sqlite3_stmt* stmt;
+	const char* sql2 = "SELECT name FROM users WHERE id = ?";
+	sqlite3_stmt* stmt1;
+	sqlite3_stmt* stmt2;
 
-	if (sqlite3_prepare_v2(db, sql, -1, &stmt, nullptr) != SQLITE_OK) {
-		cerr << "Failed to prepare statement: " << sqlite3_errmsg(db) << endl;
+	// Prepare the first query to fetch account details
+	if (sqlite3_prepare_v2(db, sql, -1, &stmt1, nullptr) != SQLITE_OK) {
+		cerr << "Failed to prepare statement 1: " << sqlite3_errmsg(db) << endl;
 		return accounts;
 	}
 
-	while (sqlite3_step(stmt) == SQLITE_ROW) {
-		acc acc;
-		acc.accountId = sqlite3_column_int(stmt, 0);
-		acc.userId = sqlite3_column_int(stmt, 1);
-		acc.accountNumber = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
-		acc.balance = sqlite3_column_double(stmt, 3);
-		acc.accountType = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 4));
-		accounts.push_back(acc);
+	while (sqlite3_step(stmt1) == SQLITE_ROW) {
+		acc account;
+		account.accountId = sqlite3_column_int(stmt1, 0);
+		account.userId = sqlite3_column_int(stmt1, 1);
+		account.accountNumber = reinterpret_cast<const char*>(sqlite3_column_text(stmt1, 2));
+		account.balance = sqlite3_column_double(stmt1, 3);
+		account.accountType = reinterpret_cast<const char*>(sqlite3_column_text(stmt1, 4));
+
+		// Prepare the second query to fetch the user's name
+		if (sqlite3_prepare_v2(db, sql2, -1, &stmt2, nullptr) != SQLITE_OK) {
+			cerr << "Failed to prepare statement 2: " << sqlite3_errmsg(db) << endl;
+			sqlite3_finalize(stmt1);
+			return accounts;
+		}
+
+		// Bind the user ID to the second query
+		if (sqlite3_bind_int(stmt2, 1, account.userId) != SQLITE_OK) {
+			cerr << "Failed to bind user ID: " << sqlite3_errmsg(db) << endl;
+			sqlite3_finalize(stmt1);
+			sqlite3_finalize(stmt2);
+			return accounts;
+		}
+
+		// Execute the second query and fetch the user's name
+		if (sqlite3_step(stmt2) == SQLITE_ROW) {
+			account.accountHolder = reinterpret_cast<const char*>(sqlite3_column_text(stmt2, 0));
+		}
+		else {
+			account.accountHolder = "Unknown"; // Handle case where user is not found
+		}
+
+		sqlite3_finalize(stmt2); // Finalize the second statement for the next iteration
+
+		accounts.push_back(account);
 	}
 
-	sqlite3_finalize(stmt);
-
+	sqlite3_finalize(stmt1); // Finalize the first statement
 	return accounts;
 }

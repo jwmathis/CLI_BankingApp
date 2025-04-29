@@ -348,6 +348,7 @@ int main(int argc, char* argv[]) {
 						else {
 							// Display accounts
 							for (const auto& acc : filteredAccounts) {
+								cout << "Account Holder Name: " << acc.accountHolder << endl;
 								cout << "Account ID: " << acc.accountId << endl;
 								cout << "User ID: " << acc.userId << endl;
 								cout << "Account Number: " << acc.accountNumber << endl;

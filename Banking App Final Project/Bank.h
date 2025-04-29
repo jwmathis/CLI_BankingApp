@@ -50,6 +50,7 @@ public:
 	 * @brief Represents an account record in the bank.
 	 */
 	struct acc {
+        string accountHolder;
 		int accountId; ///< The unique ID of the account.
 		int userId; ///< The ID of the user owning the account.
 		string accountNumber; ///< The unique account number.
