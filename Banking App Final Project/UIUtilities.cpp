@@ -391,7 +391,6 @@ void customerMenu(Customer* customer, Bank& bank) {
 		"8. Undo Last Transaction",
 		"9. Submit Help Request",
 		"10. Logout",
-		"11. Test",
 	};
 
 	bool whileFlag = true;
@@ -968,133 +967,92 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 			case HELP: {
 				system("cls");
-				auto screen = ScreenInteractive::TerminalOutput();
-				std::string helpRequest = "";
 				std::string statusMessage = "";
+				std::string helpRequest = "";
+				int i = 0;
 				int selectedIndex = 0; // Index for selecting requests to delete
-
-				// Use the existing customer object
-				//vector<std::string>& vector1 = customer->getHelpRequests();
-				//CustomQueue<std::string> queue = customer->convertVectorToQueue(vector1);
 				CustomQueue<string> queue = customer->getHelpRequests();
-				// Input for submitting new help requests
-				auto submitRequestInput = Input(&helpRequest, "Enter your help request: ");
-
-				// Buttons
-				auto submitRequestButton = Button("Submit Request", [&] {
-					if (!helpRequest.empty()) {
-						queue.push(helpRequest); // Add request to the queue
-						statusMessage = "Your request has been submitted.";
-						helpRequest = ""; // Clear input
+				CustomQueue<string> tempQueue = queue;
+				while (true) {
+					system("cls");
+					tempQueue = queue;
+					cout << "Help Requests:" << endl;
+					// Display the help requests
+					if (tempQueue.empty())
+					{
+						cout << "No help requests found.\n" << endl;
 					}
 					else {
-						statusMessage = "Error: Request cannot be empty.";
-					}
-					});
-
-				auto deleteRequestButton = Button("Delete Selected Request", [&] {
-					if (!queue.empty()) {
-						CustomQueue<std::string> tempQueue;
-
-						// Rebuild the queue, skipping the selected index
-						for (int i = 0; !queue.empty(); ++i) {
-							if (i != selectedIndex) {
-								tempQueue.push(queue.front());
-							}
-							queue.pop();
+						cout << "Your help requests:" << endl;
+						int i = 0;
+						while (!tempQueue.empty()) {
+							cout << i + 1 << ". " << tempQueue.front() << endl;
+							tempQueue.pop();
+							i++;
 						}
-						queue = tempQueue; // Replace with the updated queue
-
-						statusMessage = "Request deleted successfully.";
-						selectedIndex = std::min(selectedIndex, (int)queue.size() - 1); // Adjust index if needed
 					}
-					else {
-						statusMessage = "Error: No requests to delete.";
+					cout << "\nWhat would you like to do?" << endl;
+					cout << "1. Submit a new help request" << endl;
+					cout << "2. Delete a help request" << endl;
+					cout << "3. Back to Customer Menu" << endl;
+					int choice;
+					cin >> choice;
+					cin.ignore(); // Ignore the newline character left in the input buffer
+					switch (choice) {
+					case 1: {
+						system("cls");
+						// Input for submitting new help requests
+						cout << "Enter your help request: ";
+						std::getline(std::cin, helpRequest);
+						if (!helpRequest.empty()) {
+							queue.push(helpRequest);
+							helpRequest = "";
+							cout << "Your request has been sent. It will be processed in the next few days.";
+						} // Add request to the queue
+
+						break;
 					}
-					});
+					case 2:
+						system("cls");
+						if (!queue.empty()) {
+							cout << "Select the request to delete (1-" << queue.size() << "): ";
+							cin >> selectedIndex;
+							cin.ignore();
 
-				auto exitButton = Button("Back", [&] { screen.Exit(); });
+							if (selectedIndex >= 1 && selectedIndex <= queue.size()) {
+								CustomQueue<std::string> tempQueue;
 
-				// Request List Renderer
+								int currentIndex = 1;
+								while (!queue.empty()) {
+									if (currentIndex != selectedIndex) {
+										tempQueue.push(queue.front());
+									}
+									queue.pop();
+									++currentIndex;
+								}
+								queue = tempQueue; // Use the corrected assignment operator
 
-				/*auto requestListRenderer = Renderer([&] {
-					std::vector<Element> requestElements;
-					int index = 0;
-					for (const auto& request : customer->getHelpRequests()) {
-						bool isSelected = (index == selectedIndex);
-						auto style = isSelected ? bgcolor(Color::Blue) | color(Color::White) : nothing;
-						requestElements.push_back(text(request) | style);
-						++index;
+								cout << "Request deleted successfully." << endl;
+							}
+							else {
+								cout << "Invalid selection. Please try again." << endl;
+							}
+						}
+						else {
+							cout << "Error: No requests to delete." << endl;
+						}
+						break;
+					case 3:
+						break;
 					}
-					return vbox(requestElements) | frame | vscroll_indicator | size(HEIGHT, LESS_THAN, 10);
-					});*/
-				auto requestListRenderer = Renderer([&] {
-					std::vector<Element> requestElements;
-					int index = 0;
 
-					// Use a temporary copy to iterate through the queue
-					CustomQueue<std::string> tempQueue = customer->getHelpRequests();
-					while (!tempQueue.empty()) {
-						bool isSelected = (index == selectedIndex);
-						auto style = isSelected ? bgcolor(Color::Blue) | color(Color::White) : nothing;
-						requestElements.push_back(text(tempQueue.front()) | style);
-						tempQueue.pop();
-						++index;
+					if (choice == 3) {
+						break;
 					}
-
-					return vbox(requestElements) | frame | vscroll_indicator | size(HEIGHT, LESS_THAN, 10);
-					});
-
-				// Navigation Buttons
-				auto selectNextButton = Button("Select Next", [&] {
-					if (!queue.empty()) {
-						selectedIndex = (selectedIndex + 1) % queue.size();
-					}
-					});
-
-				auto selectPreviousButton = Button("Select Previous", [&] {
-					if (!queue.empty()) {
-						selectedIndex = (selectedIndex - 1 + queue.size()) % queue.size();
-					}
-					});
-
-				// Layout
-				auto layout = Container::Vertical({
-					submitRequestInput,
-					submitRequestButton,
-					requestListRenderer,
-					selectNextButton,
-					selectPreviousButton,
-					deleteRequestButton,
-					exitButton,
-					});
-
-				auto renderer = Renderer(layout, [&] {
-					return vbox({
-						text("Help Request System") | bold | center,
-						separator(),
-						text("Submit a new help request:"),
-						hbox({
-							submitRequestInput->Render(),
-							submitRequestButton->Render() | hcenter,
-						}),
-						separator(),
-						text("Select a request to delete:"),
-						requestListRenderer->Render(),
-						hbox({
-							selectPreviousButton->Render(),
-							selectNextButton->Render(),
-						}) | center,
-						deleteRequestButton->Render() | hcenter,
-						separator(),
-						statusMessage.empty() ? text("") : text(statusMessage) | color(Color::Green),
-						exitButton->Render() | hcenter,
-						}) | border;
-					});
-
-				screen.Loop(renderer);
+				}
 				break;
 			}
+			
 
 			case LOGOUT: {
 				system("cls");
@@ -1144,21 +1102,21 @@ void customerMenu(Customer* customer, Bank& bank) {
 				//system("pause");
 				break;
 			}
-			case TEST: {
-				int n = 4;
-				// Create a graph with 4 vertices
-				Graph g(n);
+			//case TEST: {
+			//	int n = 4;
+			//	// Create a graph with 4 vertices
+			//	Graph g(n);
 
-				// Adding the specified edges in the graph
-				g.add_edge(0, 1);
-				g.add_edge(0, 2);
-				g.add_edge(1, 3);
-				g.add_edge(2, 3);
+			//	// Adding the specified edges in the graph
+			//	g.add_edge(0, 1);
+			//	g.add_edge(0, 2);
+			//	g.add_edge(1, 3);
+			//	g.add_edge(2, 3);
 
-				g.print();
-				system("pause");
-				break;
-			}
+			//	g.print();
+			//	system("pause");
+			//	break;
+			//}
 
 			default: 
 				break;

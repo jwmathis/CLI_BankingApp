@@ -54,7 +54,7 @@ private:
     Node* rearNode;  ///< Pointer to the rear of the queue
     int count;      ///< Size of the queue
 public:
-    CustomQueue() : frontNode(nullptr), rearNode(nullptr) {}
+    CustomQueue() : frontNode(nullptr), rearNode(nullptr), count(0) {}
 
     ~CustomQueue() {
         while (!empty()) {
@@ -77,7 +77,7 @@ public:
     void pop() {
         if (!empty()) {
             Node* temp = frontNode;
-            frontNode = frontNode->next;
+            frontNode = temp->next;
             delete temp;
             --count; // Decrement size
             if (!frontNode) {
@@ -99,6 +99,28 @@ public:
 
     int size() const {
         return count;
+    }
+
+    CustomQueue(const CustomQueue& other) : frontNode(nullptr), rearNode(nullptr), count(0) {
+        Node* current = other.frontNode;
+        while (current) {
+            push(current->data); // Use `push` to add elements to the new queue
+            current = current->next;
+        }
+    }
+
+    CustomQueue& operator=(const CustomQueue& other) {
+        if (this != &other) {
+            while (!empty()) {
+                pop(); // Clear the current queue
+            }
+            Node* current = other.frontNode;
+            while (current) {
+                push(current->data); // Copy elements
+                current = current->next;
+            }
+        }
+        return *this;
     }
 };
 
