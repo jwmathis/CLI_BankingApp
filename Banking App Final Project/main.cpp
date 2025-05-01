@@ -111,7 +111,6 @@ int main(int argc, char* argv[]) {
 	// Display Main menu options
 	while (true) {
 		system("cls");
-		selectedMenuEntry = 0; // FTXUI: Reset the selected menu entry
 		screen.Loop(Window("Mercer Bank", menu)); // FTXUI: Display the menu
 
 		selectedMenuEntry += 1; // FTXUI: Increment the selected menu entry for switch case selection
@@ -251,7 +250,6 @@ int main(int argc, char* argv[]) {
 				auto adminMenu = Menu(&adminMenuEntries, &selectedAdminMenuEntry, adminMenuOption); // FTXUI: Admin menu component
 				bool flag = true; // FTXUI: Flag to control the loop
 			while (flag) {
-				selectedAdminMenuEntry = 0; // FTXUI: Reset the selected admin menu entry
 				screen.Loop(Window("Admin Menu", adminMenu)); // FTXUI: Display the admin menu
 				selectedAdminMenuEntry += 1; // FTXUI: Increment the selected admin menu entry for switch case selection
 				switch (selectedAdminMenuEntry) { // FTXUI: Switch case for admin menu options

@@ -140,8 +140,9 @@ public:
      * @brief Retrieves all help requests from the customer's queue.
      * @return A queue containing all help requests.
      */
-    CustomQueue<string>& getHelpRequests();
-
+    //vector<string>& getHelpRequests();
+    CustomQueue<std::string> getHelpRequests();
+    CustomQueue<std::string> convertVectorToQueue(const std::vector<std::string>& vec);
     /**
      * @brief Displays the customer's transaction history.
      */

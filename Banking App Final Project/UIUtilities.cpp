@@ -431,7 +431,6 @@ void customerMenu(Customer* customer, Bank& bank) {
 		});
 
 	while (whileFlag) {
-		selected = 0; // Reset selected index
 		system("cls");
 		screen.Loop(renderer);
 		while (!isLoggedOut) {
@@ -459,18 +458,12 @@ void customerMenu(Customer* customer, Bank& bank) {
 				std::string success_message;
 				std::string depositAmountString;
 				double depositAmount = 0.0;
+				bool depositSuccess = false; // Tracks whether the deposit was successful.
+				bool awaitingAcknowledgment = false; // Tracks if the user is acknowledging the success message.
 
 				// Populate account options.
 				for (const auto& account : displayAccounts) {
-					string accountType;
-
-					if (dynamic_cast<SavingsAccount<T>*>(account)) {
-						accountType = "Savings";
-					}
-					else {
-						accountType = "Regular";
-					}
-
+					std::string accountType = dynamic_cast<SavingsAccount<T>*>(account) ? "Savings" : "Regular";
 					std::string accountInfo = accountType +
 						" (Account Number: " + account->getAccountNum() +
 						", Balance: $" + std::to_string(account->getBalance()) + ")";
@@ -485,6 +478,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 				// Submit button to perform the deposit.
 				auto submitButton = Button("Submit", [&] {
+					if (awaitingAcknowledgment) return; // Ignore submit clicks during acknowledgment phase.
 
 					try {
 						depositAmount = std::stod(depositAmountString);
@@ -497,30 +491,25 @@ void customerMenu(Customer* customer, Bank& bank) {
 						error_message = "\xE2\x9D\x8C Error: Please enter a valid amount.";
 						return;
 					}
-					string accountNum;
+
 					Account<T>* accountSelected = displayAccounts[selectedOption];
-					if (accountSelected) {
-						accountNum = accountSelected->getAccountNum();
-					}
-					else {
+					if (!accountSelected) {
 						error_message = "\xE2\x9D\x8C Error: Account not found.";
+						return;
 					}
 
-					if (accountSelected) {
-						accountSelected->deposit(depositAmount);
-						if (bank.updateAccountBalance(accountSelected->getId(), accountSelected->getBalance())) {
-							success_message = "\xE2\x9C\x85 Deposit successful! New balance: $" + std::to_string(accountSelected->getBalance());
-							customer->addTransaction("Deposit", depositAmount);
-							customer->generateTransactionReceipt(success_message);
-							
-						}
-						else {
-							error_message = "\xE2\x9D\x8C Error: Failed to update account balance.";
-						}
+					accountSelected->deposit(depositAmount);
+					if (bank.updateAccountBalance(accountSelected->getId(), accountSelected->getBalance())) {
+						success_message = "\xE2\x9C\x85 Deposit successful! New balance: $" +
+							std::to_string(accountSelected->getBalance());
+						customer->addTransaction("Deposit", depositAmount);
+						customer->generateTransactionReceipt(success_message);
+						depositSuccess = true;
 					}
 					else {
-						error_message = "\xE2\x9D\x8C Error: Account not found.";
+						error_message = "\xE2\x9D\x8C Error: Failed to update account balance.";
 					}
+					awaitingAcknowledgment = true;
 					});
 
 				// Back button to cancel the deposit.
@@ -528,9 +517,6 @@ void customerMenu(Customer* customer, Bank& bank) {
 					screen.Exit();
 					});
 
-				auto backButton = Button("Back to Home", [&] {
-					screen.Exit();
-					});
 				// Layout for the menu.
 				auto layout = Container::Vertical({
 					accountSelection,
@@ -541,35 +527,34 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 				// Renderer for the interface.
 				auto renderer = Renderer(layout, [&] {
-					auto mainUI = vbox({
-							   text("Deposit Amount") | bold | center,
-							   separator(),
-							   text("Select an account:"),
-							   accountSelection->Render(),
-							   separator(),
-							   depositInput->Render(),
-							   separator(),
-							   hbox({
-								   submitButton->Render() | center,
-								   cancelButton->Render() | center,
-							   }),
-							   error_message.empty() ? text("") : text(error_message) | color(Color::Red),
-						}) |
-						border;
-					// Success message and back button, displayed conditionally
-					/*if (!success_message.empty()) {
-						mainUI = vbox({
+					if (awaitingAcknowledgment) {
+						return vbox({
 							text(success_message) | color(Color::Green) | center,
 							separator(),
-							backButton->Render() | center,
-							});
-					}*/
+							cancelButton->Render() | center,
+							}) | border;
+					}
 
-				return mainUI | border;
-			});
+					return vbox({
+						text("Deposit Amount") | bold | center,
+						separator(),
+						text("Select an account:"),
+						accountSelection->Render(),
+						separator(),
+						depositInput->Render(),
+						separator(),
+						hbox({
+							submitButton->Render() | center,
+							cancelButton->Render() | center,
+						}),
+						success_message.empty() ? text("") : text(success_message) | color(Color::Green),
+						error_message.empty() ? text("") : text(error_message) | color(Color::Red),
+						}) | border;
+					});
+
+
 				// Run the screen loop.
 				screen.Loop(renderer);
-				//system("pause");
 				break;
 			}
 
@@ -585,6 +570,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 				std::string success_message;
 				std::string withdrawAmountString;
 				double withdrawAmount = 0.0;
+				bool awaitingAcknowledgment = false; // Tracks if the user is acknowledging the success message.
 
 				// Populate account options.
 				for (const auto& account : displayAccounts) {
@@ -613,12 +599,12 @@ void customerMenu(Customer* customer, Bank& bank) {
 					try {
 						withdrawAmount = std::stod(withdrawAmountString);
 						if (withdrawAmount <= 0) {
-							error_message = "Error: Deposit amount must be greater than 0.";
+							error_message = "\xE2\x9D\x8C Error: Deposit amount must be greater than 0.";
 							return;
 						}
 					}
 					catch (const std::exception&) {
-						error_message = "Error: Please enter a valid amount.";
+						error_message = "\xE2\x9D\x8C Error: Please enter a valid amount.";
 						return;
 					}
 
@@ -627,22 +613,22 @@ void customerMenu(Customer* customer, Bank& bank) {
 					if (accountSelected) {
 						accountSelected->withdraw(withdrawAmount);
 						if (bank.updateAccountBalance(accountSelected->getId(), accountSelected->getBalance())) {
-							success_message = "Withdrawal successful! New balance: $" + std::to_string(accountSelected->getBalance());
+							success_message = "\xE2\x9C\x85 Withdrawal successful! New balance: $" + std::to_string(accountSelected->getBalance());
 							customer->addTransaction("Withdrawal", withdrawAmount);
 							customer->generateTransactionReceipt(success_message);
-							screen.Exit();
 						}
 						else {
-							error_message = "Error: Failed to update account balance.";
+							error_message = "\xE2\x9D\x8C Error: Failed to update account balance.";
 						}
 					}
 					else {
-						error_message = "Error: Account not found.";
+						error_message = "\xE2\x9D\x8C Error: Account not found.";
 					}
+					awaitingAcknowledgment = true;
 					});
 
 				// Back button to cancel the deposit.
-				auto backButton = Button("Cancel", [&] {
+				auto cancelButton = Button("Cancel", [&] {
 					screen.Exit();
 					});
 
@@ -651,11 +637,19 @@ void customerMenu(Customer* customer, Bank& bank) {
 					accountSelection,
 					withdrawInput,
 					submitButton,
-					backButton,
+					cancelButton,
 					});
 
 				// Renderer for the interface.
 				auto renderer = Renderer(layout, [&] {
+					if (awaitingAcknowledgment) {
+						return vbox({
+							text(success_message) | color(Color::Green) | center,
+							separator(),
+							cancelButton->Render() | center,
+							}) | border;
+					}
+
 					return vbox({
 							   text("Withdraw Amount") | bold | center,
 							   separator(),
@@ -666,7 +660,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 							   separator(),
 							   hbox({
 								   submitButton->Render() | center,
-								   backButton->Render() | center,
+								   cancelButton->Render() | center,
 							   }),
 							   success_message.empty() ? text("") : text(success_message) | color(Color::Green),
 							   error_message.empty() ? text("") : text(error_message) | color(Color::Red),
@@ -674,9 +668,8 @@ void customerMenu(Customer* customer, Bank& bank) {
 						border;
 					});
 
-				// Run the screen loop.
+				// Pause mechanism after success
 				screen.Loop(renderer);
-				//system("pause");
 				break;
 			}
 			case TRANSFER_AMOUNT: {
@@ -691,6 +684,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 				std::string success_message;
 				std::string transferAmountString;
 				double transferAmount = 0.0;
+				bool awaitingAcknowledgment = false; // Tracks if the user is acknowledging the success message.
 
 				// Populate account options.
 				for (const auto& account : displayAccounts) {
@@ -720,19 +714,19 @@ void customerMenu(Customer* customer, Bank& bank) {
 				// Submit button to perform the transfer.
 				auto submitButton = Button("Submit", [&] {
 					if (senderOption == receiverOption) {
-						error_message = "Error: Cannot transfer to the same account.";
+						error_message = "\xE2\x9D\x8C Error: Cannot transfer to the same account.";
 						return;
 					}
 
 					try {
 						transferAmount = std::stod(transferAmountString);
 						if (transferAmount <= 0) {
-							error_message = "Error: Transfer amount must be greater than 0.";
+							error_message = "\xE2\x9D\x8C Error: Transfer amount must be greater than 0.";
 							return;
 						}
 					}
 					catch (const std::exception&) {
-						error_message = "Error: Please enter a valid amount.";
+						error_message = "\xE2\x9D\x8C Error: Please enter a valid amount.";
 						return;
 					}
 					string senderAccountNum, receiverAccountNum;
@@ -740,7 +734,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 					Account<T>* receiverAccount = displayAccounts[receiverOption];
 
 					if (!senderAccount || !receiverAccount) {
-						error_message = "Error: Invalid account numbers.";
+						error_message = "\xE2\x9D\x8C Error: Invalid account numbers.";
 						return;
 					}
 
@@ -751,22 +745,22 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 						if (bank.updateAccountBalance(senderAccount->getId(), senderAccount->getBalance()) &&
 							bank.updateAccountBalance(receiverAccount->getId(), receiverAccount->getBalance())) {
-							success_message = "Transfer successful! New balance of sender account: $" +
+							success_message = "\xE2\x9C\x85 Transfer successful! New balance of sender account: $" +
 								std::to_string(senderAccount->getBalance());
 							customer->generateTransactionReceipt(success_message);
-							screen.Exit();
 						}
 						else {
-							error_message = "Error: Failed to update account balances.";
+							error_message = "\xE2\x9D\x8C Error: Failed to update account balances.";
 						}
 					}
 					else {
-						error_message = "Error: Insufficient funds in sender's account.";
+						error_message = "\xE2\x9D\x8C Error: Insufficient funds in sender's account.";
 					}
+					awaitingAcknowledgment = true;
 					});
 
-				// Back button to cancel the transfer.
-				auto backButton = Button("Cancel", [&] {
+				// Back button to cancel the deposit.
+				auto cancelButton = Button("Cancel", [&] {
 					screen.Exit();
 					});
 
@@ -777,12 +771,20 @@ void customerMenu(Customer* customer, Bank& bank) {
 					amountInput,
 					Container::Horizontal({
 					submitButton,
-					backButton,
+					cancelButton,
 					})
 					});
 
 				// Renderer for the interface.
 				auto renderer = Renderer(layout, [&] {
+					if (awaitingAcknowledgment) {
+						return vbox({
+							text(success_message) | color(Color::Green) | center,
+							separator(),
+							cancelButton->Render() | center,
+							}) | border;
+					}
+
 					return vbox({
 							   text("Transfer Amount") | bold | center,
 							   separator(),
@@ -796,7 +798,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 							   separator(),
 							   hbox({
 								   submitButton->Render() | center,
-								   backButton->Render() | center,
+								   cancelButton->Render() | center,
 							   }),
 							   success_message.empty() ? text("") : text(success_message) | color(Color::Green),
 							   error_message.empty() ? text("") : text(error_message) | color(Color::Red),
@@ -971,33 +973,19 @@ void customerMenu(Customer* customer, Bank& bank) {
 				std::string statusMessage = "";
 				int selectedIndex = 0; // Index for selecting requests to delete
 
-				Customer customer; // Create a customer
-
-				// Fetch help requests from the customer
-				auto fetchHelpRequests = [&]() -> std::vector<std::string> {
-					std::vector<std::string> requests;
-					CustomQueue<std::string>& queueRef = customer.getHelpRequests();
-					CustomQueue<std::string> tempQueue = queueRef;
-
-					while (!tempQueue.empty()) {
-						requests.push_back(tempQueue.front());
-						tempQueue.pop();
-					}
-					return requests;
-					};
-
-				auto helpRequests = fetchHelpRequests();
-
+				// Use the existing customer object
+				//vector<std::string>& vector1 = customer->getHelpRequests();
+				//CustomQueue<std::string> queue = customer->convertVectorToQueue(vector1);
+				CustomQueue<string> queue = customer->getHelpRequests();
 				// Input for submitting new help requests
 				auto submitRequestInput = Input(&helpRequest, "Enter your help request: ");
 
 				// Buttons
 				auto submitRequestButton = Button("Submit Request", [&] {
 					if (!helpRequest.empty()) {
-						customer.addHelpRequest(helpRequest);
+						queue.push(helpRequest); // Add request to the queue
 						statusMessage = "Your request has been submitted.";
 						helpRequest = ""; // Clear input
-						helpRequests = fetchHelpRequests(); // Refresh the request list
 					}
 					else {
 						statusMessage = "Error: Request cannot be empty.";
@@ -1005,40 +993,68 @@ void customerMenu(Customer* customer, Bank& bank) {
 					});
 
 				auto deleteRequestButton = Button("Delete Selected Request", [&] {
-					if (!helpRequests.empty() && selectedIndex >= 0 && selectedIndex < helpRequests.size()) {
-						customer.removeHelpRequest();
+					if (!queue.empty()) {
+						CustomQueue<std::string> tempQueue;
+
+						// Rebuild the queue, skipping the selected index
+						for (int i = 0; !queue.empty(); ++i) {
+							if (i != selectedIndex) {
+								tempQueue.push(queue.front());
+							}
+							queue.pop();
+						}
+						queue = tempQueue; // Replace with the updated queue
+
 						statusMessage = "Request deleted successfully.";
-						helpRequests = fetchHelpRequests(); // Refresh the request list
-						selectedIndex = 0; // Reset selection
+						selectedIndex = std::min(selectedIndex, (int)queue.size() - 1); // Adjust index if needed
 					}
 					else {
-						statusMessage = "Error: No request selected or invalid selection.";
+						statusMessage = "Error: No requests to delete.";
 					}
 					});
 
 				auto exitButton = Button("Back", [&] { screen.Exit(); });
 
 				// Request List Renderer
+
+				/*auto requestListRenderer = Renderer([&] {
+					std::vector<Element> requestElements;
+					int index = 0;
+					for (const auto& request : customer->getHelpRequests()) {
+						bool isSelected = (index == selectedIndex);
+						auto style = isSelected ? bgcolor(Color::Blue) | color(Color::White) : nothing;
+						requestElements.push_back(text(request) | style);
+						++index;
+					}
+					return vbox(requestElements) | frame | vscroll_indicator | size(HEIGHT, LESS_THAN, 10);
+					});*/
 				auto requestListRenderer = Renderer([&] {
 					std::vector<Element> requestElements;
-					for (size_t i = 0; i < helpRequests.size(); ++i) {
-						bool isSelected = (i == selectedIndex);
+					int index = 0;
+
+					// Use a temporary copy to iterate through the queue
+					CustomQueue<std::string> tempQueue = customer->getHelpRequests();
+					while (!tempQueue.empty()) {
+						bool isSelected = (index == selectedIndex);
 						auto style = isSelected ? bgcolor(Color::Blue) | color(Color::White) : nothing;
-						requestElements.push_back(text(helpRequests[i]) | style);
+						requestElements.push_back(text(tempQueue.front()) | style);
+						tempQueue.pop();
+						++index;
 					}
+
 					return vbox(requestElements) | frame | vscroll_indicator | size(HEIGHT, LESS_THAN, 10);
 					});
 
 				// Navigation Buttons
 				auto selectNextButton = Button("Select Next", [&] {
-					if (!helpRequests.empty()) {
-						selectedIndex = (selectedIndex + 1) % helpRequests.size();
+					if (!queue.empty()) {
+						selectedIndex = (selectedIndex + 1) % queue.size();
 					}
 					});
 
 				auto selectPreviousButton = Button("Select Previous", [&] {
-					if (!helpRequests.empty()) {
-						selectedIndex = (selectedIndex - 1 + helpRequests.size()) % helpRequests.size();
+					if (!queue.empty()) {
+						selectedIndex = (selectedIndex - 1 + queue.size()) % queue.size();
 					}
 					});
 

@@ -125,11 +125,26 @@ bool Customer::removeHelpRequest() {
 	helpRequestQueue.pop();
 	return true;
 }
-CustomQueue<string>& Customer::getHelpRequests() {
-
+//vector<string>& Customer::getHelpRequests() {
+//
+//	std::vector<std::string> requests;
+//	CustomQueue<std::string> tempQueue = helpRequestQueue; // Assuming helpRequests is a CustomQueue
+//	while (!tempQueue.empty()) {
+//		requests.push_back(tempQueue.front());
+//		tempQueue.pop();
+//	}
+//	return requests;
+//}
+CustomQueue<string> Customer::getHelpRequests() {
 	return helpRequestQueue;
 }
-
+CustomQueue<std::string> Customer::convertVectorToQueue(const std::vector<std::string>& vec) {
+	CustomQueue<std::string> queue;
+	for (const auto& item : vec) {
+		queue.push(item);
+	}
+	return queue;
+}
 void Customer::displayTransactionHistory() {
 
 	using namespace ftxui;
