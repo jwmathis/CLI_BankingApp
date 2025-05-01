@@ -101,6 +101,7 @@ Link to doxygen documentation: [https://jwmathis.github.io/CLI_BankingApp/]
 - Add support for external configuration files.
 - Extend sorting/filtering capabilities with additional criteria.
 - Implement more robust error handling.
+- Modularize menu functions with FTXUI implementation.
 
 ---
 
