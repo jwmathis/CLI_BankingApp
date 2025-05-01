@@ -6,6 +6,6 @@ var searchData=
   ['accountremoveaccount_3',['accountRemoveAccount',['../class_bank.html#a85511960307fce9555fae7617c74883c',1,'Bank']]],
   ['addaccountforcustomer_4',['addAccountForCustomer',['../class_bank.html#ac95bec695452b361cf1a45500dc267ed',1,'Bank']]],
   ['addhelprequest_5',['addHelpRequest',['../class_customer.html#aa7b82fad31c4967e52eb1e49e6d368f8',1,'Customer']]],
-  ['addtransaction_6',['addTransaction',['../class_customer.html#ad26221c608bed7602434f3982e54d0bc',1,'Customer']]],
+  ['addtransaction_6',['addTransaction',['../class_customer.html#a5e827fcec1138fc2136b204b64cddcce',1,'Customer']]],
   ['applyinterest_7',['applyInterest',['../class_account.html#afd4c2e64dde5833e1a18c15920827fcf',1,'Account::applyInterest()'],['../class_savings_account.html#a0e8bd05161f1ed2fda4dba8bd3987a8c',1,'SavingsAccount::applyInterest()']]]
 ];

@@ -175,7 +175,7 @@ $(function(){initNavTree('_structures_and_algorithms_8h_source.html',''); initRe
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    Node* rearNode;  </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">int</span> count;      </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_custom_queue.html#a565ff451c4368aca8a1a708364b9a1fc">   57</a></span>    <a class="code hl_function" href="class_custom_queue.html#a565ff451c4368aca8a1a708364b9a1fc">CustomQueue</a>() : frontNode(nullptr), rearNode(nullptr) {}</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="class_custom_queue.html#a565ff451c4368aca8a1a708364b9a1fc">   57</a></span>    <a class="code hl_function" href="class_custom_queue.html#a565ff451c4368aca8a1a708364b9a1fc">CustomQueue</a>() : frontNode(nullptr), rearNode(nullptr), count(0) {}</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_custom_queue.html#a45a5316a51c4489c22d0c3b9659d0bd5">   59</a></span>    <a class="code hl_function" href="class_custom_queue.html#a45a5316a51c4489c22d0c3b9659d0bd5">~CustomQueue</a>() {</div>
@@ -203,7 +203,7 @@ $(function(){initNavTree('_structures_and_algorithms_8h_source.html',''); initRe
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_custom_queue.html#a1b4fabafa838264e5ec327ece9201c8d">   77</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_custom_queue.html#a1b4fabafa838264e5ec327ece9201c8d">pop</a>() {</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="class_custom_queue.html#ac77796d4dc67637357abfe698b164bee">empty</a>()) {</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            Node* temp = frontNode;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            frontNode = frontNode-&gt;next;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            frontNode = temp-&gt;next;</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keyword">delete</span> temp;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            --count; <span class="comment">// Decrement size</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordflow">if</span> (!frontNode) {</div>
@@ -233,15 +233,43 @@ $(function(){initNavTree('_structures_and_algorithms_8h_source.html',''); initRe
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">return</span> count;</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
 </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>};</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="class_custom_queue.html#adaef6c04dd8fe39b6f4b49fbdcd54b6f">  104</a></span>    <a class="code hl_function" href="class_custom_queue.html#adaef6c04dd8fe39b6f4b49fbdcd54b6f">CustomQueue</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_custom_queue.html#a565ff451c4368aca8a1a708364b9a1fc">CustomQueue</a>&amp; other) : frontNode(nullptr), rearNode(nullptr), count(0) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        Node* current = other.frontNode;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">while</span> (current) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            <a class="code hl_function" href="class_custom_queue.html#a49e41896fca2c8c83c1456a043216fe8">push</a>(current-&gt;data); <span class="comment">// Use `push` to add elements to the new queue</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            current = current-&gt;next;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
 </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="class_custom_queue.html#a345984978ae54be681d3363be0cc3865">  112</a></span>    <a class="code hl_function" href="class_custom_queue.html#a565ff451c4368aca8a1a708364b9a1fc">CustomQueue</a>&amp; <a class="code hl_function" href="class_custom_queue.html#a345984978ae54be681d3363be0cc3865">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_custom_queue.html#a565ff451c4368aca8a1a708364b9a1fc">CustomQueue</a>&amp; other) {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;other) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">while</span> (!<a class="code hl_function" href="class_custom_queue.html#ac77796d4dc67637357abfe698b164bee">empty</a>()) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                <a class="code hl_function" href="class_custom_queue.html#a1b4fabafa838264e5ec327ece9201c8d">pop</a>(); <span class="comment">// Clear the current queue</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            Node* current = other.frontNode;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            <span class="keywordflow">while</span> (current) {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                <a class="code hl_function" href="class_custom_queue.html#a49e41896fca2c8c83c1456a043216fe8">push</a>(current-&gt;data); <span class="comment">// Copy elements</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                current = current-&gt;next;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>};</div>
+</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
 <div class="ttc" id="aclass_custom_queue_html_a1b4fabafa838264e5ec327ece9201c8d"><div class="ttname"><a href="class_custom_queue.html#a1b4fabafa838264e5ec327ece9201c8d">CustomQueue::pop</a></div><div class="ttdeci">void pop()</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:77</div></div>
+<div class="ttc" id="aclass_custom_queue_html_a345984978ae54be681d3363be0cc3865"><div class="ttname"><a href="class_custom_queue.html#a345984978ae54be681d3363be0cc3865">CustomQueue::operator=</a></div><div class="ttdeci">CustomQueue &amp; operator=(const CustomQueue &amp;other)</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:112</div></div>
 <div class="ttc" id="aclass_custom_queue_html_a45a5316a51c4489c22d0c3b9659d0bd5"><div class="ttname"><a href="class_custom_queue.html#a45a5316a51c4489c22d0c3b9659d0bd5">CustomQueue::~CustomQueue</a></div><div class="ttdeci">~CustomQueue()</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:59</div></div>
 <div class="ttc" id="aclass_custom_queue_html_a49e41896fca2c8c83c1456a043216fe8"><div class="ttname"><a href="class_custom_queue.html#a49e41896fca2c8c83c1456a043216fe8">CustomQueue::push</a></div><div class="ttdeci">void push(const T &amp;value)</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:65</div></div>
 <div class="ttc" id="aclass_custom_queue_html_a565ff451c4368aca8a1a708364b9a1fc"><div class="ttname"><a href="class_custom_queue.html#a565ff451c4368aca8a1a708364b9a1fc">CustomQueue::CustomQueue</a></div><div class="ttdeci">CustomQueue()</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:57</div></div>
 <div class="ttc" id="aclass_custom_queue_html_a734f21789c2647bdb9b155ff8617bee5"><div class="ttname"><a href="class_custom_queue.html#a734f21789c2647bdb9b155ff8617bee5">CustomQueue::size</a></div><div class="ttdeci">int size() const</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:100</div></div>
 <div class="ttc" id="aclass_custom_queue_html_ac77796d4dc67637357abfe698b164bee"><div class="ttname"><a href="class_custom_queue.html#ac77796d4dc67637357abfe698b164bee">CustomQueue::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:96</div></div>
+<div class="ttc" id="aclass_custom_queue_html_adaef6c04dd8fe39b6f4b49fbdcd54b6f"><div class="ttname"><a href="class_custom_queue.html#adaef6c04dd8fe39b6f4b49fbdcd54b6f">CustomQueue::CustomQueue</a></div><div class="ttdeci">CustomQueue(const CustomQueue &amp;other)</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:104</div></div>
 <div class="ttc" id="aclass_custom_queue_html_adf731b18f0bc3ff4c897e1802cf05c15"><div class="ttname"><a href="class_custom_queue.html#adf731b18f0bc3ff4c897e1802cf05c15">CustomQueue::front</a></div><div class="ttdeci">T front() const</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:89</div></div>
 <div class="ttc" id="aclass_custom_stack_html_a1def9d0baa1b83f53a2b5cfd42be918b"><div class="ttname"><a href="class_custom_stack.html#a1def9d0baa1b83f53a2b5cfd42be918b">CustomStack::pop</a></div><div class="ttdeci">void pop()</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:25</div></div>
 <div class="ttc" id="aclass_custom_stack_html_a20485c13ad55c3e18c5bcce8f514efe1"><div class="ttname"><a href="class_custom_stack.html#a20485c13ad55c3e18c5bcce8f514efe1">CustomStack::top</a></div><div class="ttdeci">T top() const</div><div class="ttdef"><b>Definition</b> StructuresAndAlgorithms.h:33</div></div>
