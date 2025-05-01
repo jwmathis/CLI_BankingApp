@@ -1,0 +1,45 @@
+Transaction: ✅ Deposit successful! New balance: $156.800000
+------------------------------------------
+Transaction: ✅ Withdrawal successful! New balance: $56.310000
+------------------------------------------
+Transaction: ✅ Transfer successful! New balance of sender account: $50.000000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $50.000000 to the selected account. New balance of the receiver account: $615.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $100.000000 to the selected account. New balance of the receiver account: $715.310000
+------------------------------------------
+Transaction: ✅ Withdrawal successful! New balance: $715.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $100.000000 to the selected account. New balance of the receiver account: $815.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $100.000000 to the selected account. New balance of the receiver account: $915.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $100.000000 to the selected account. 
+New balance of the receiver account: $1015.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $0.000000 to the selected account. 
+New balance of the receiver account: $1015.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $0.000000 to the selected account. 
+New balance of the receiver account: $1015.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $0.000000 to the selected account. 
+New balance of the receiver account: $1015.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $0.000000 to the selected account. 
+New balance of the receiver account: $1015.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $0.000000 to the selected account. 
+New balance of the receiver account: $1015.310000
+------------------------------------------
+Transaction: Account closed successfully! Transferred $0.000000 to the selected account. 
+New balance of the receiver account: $1015.310000
+------------------------------------------
+Transaction: New balance of the receiver account : $1115.310000
+------------------------------------------
+Transaction: New balance of the receiver account : $1215.310000
+------------------------------------------
+Transaction: New balance of the receiver account : $1315.310000
+------------------------------------------
+Transaction: New balance of the receiver account : $1415.310000
+------------------------------------------

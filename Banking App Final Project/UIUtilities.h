@@ -61,7 +61,7 @@ enum AccountTypeOption {
 /**
  * @brief Welcome message displayed to the user upon starting the application.
  */
-const string WELCOME_MESSAGE = "					Welcome to Mercer Money Banking!";
+const string WELCOME_MESSAGE = "			                  Welcome to Mercer Money Banking!";
 
 /**
  * @brief Error message displayed when an invalid menu option is selected.

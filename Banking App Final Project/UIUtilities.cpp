@@ -611,13 +611,19 @@ void customerMenu(Customer* customer, Bank& bank) {
 					Account<T>* accountSelected = displayAccounts[selectedOption];
 					if (accountSelected) {
 						accountSelected->withdraw(withdrawAmount);
-						if (bank.updateAccountBalance(accountSelected->getId(), accountSelected->getBalance())) {
-							success_message = "\xE2\x9C\x85 Withdrawal successful! New balance: $" + std::to_string(accountSelected->getBalance());
-							customer->addTransaction("Withdrawal", withdrawAmount);
-							customer->generateTransactionReceipt(success_message);
+						if (withdrawAmount < accountSelected->getBalance()) {
+							if (bank.updateAccountBalance(accountSelected->getId(), accountSelected->getBalance())) {
+								success_message = "\xE2\x9C\x85 Withdrawal successful! New balance: $" + std::to_string(accountSelected->getBalance());
+								customer->addTransaction("Withdrawal", withdrawAmount);
+								customer->generateTransactionReceipt(success_message);
+							}
+
+							else {
+								error_message = "\xE2\x9D\x8C Error: Failed to update account balance.";
+							}
 						}
 						else {
-							error_message = "\xE2\x9D\x8C Error: Failed to update account balance.";
+							error_message = "\xE2\x9D\x8C Error: Insufficient funds needed to withdraw.";
 						}
 					}
 					else {
@@ -644,6 +650,7 @@ void customerMenu(Customer* customer, Bank& bank) {
 					if (awaitingAcknowledgment) {
 						return vbox({
 							text(success_message) | color(Color::Green) | center,
+							error_message.empty() ? text("") : text(error_message) | color(Color::Red),
 							separator(),
 							cancelButton->Render() | center,
 							}) | border;
@@ -821,8 +828,10 @@ void customerMenu(Customer* customer, Bank& bank) {
 				int senderOption = 0, receiverOption = 0; // Indexes for sender and receiver accounts.
 				std::string error_message;
 				std::string success_message;
+				std::string success_message2;
 				std::string transferAmountString;
 				double transferAmount = 0.0;
+				bool awaitingAcknowledgment = false; // Tracks if the user is acknowledging the success message.
 
 				// Populate account options for selection.
 				for (const auto& account : displayAccounts) {
@@ -874,18 +883,19 @@ void customerMenu(Customer* customer, Bank& bank) {
 					if (bank.updateAccountBalance(senderAccount->getId(), senderAccount->getBalance()) &&
 						bank.updateAccountBalance(receiverAccount->getId(), receiverAccount->getBalance())) {
 						success_message = "Account closed successfully! Transferred $" + std::to_string(transferAmount) +
-							" to the selected account. New balance of the receiver account: $" + std::to_string(receiverAccount->getBalance());
-						customer->generateTransactionReceipt(success_message);
+							" to the selected account.";
+						success_message2 = "New balance of the receiver account : $" + std::to_string(receiverAccount->getBalance());
+						customer->generateTransactionReceipt(success_message2);
 						bank.accountRemoveAccount(senderAccount->getAccountNum());
-						screen.Exit();
 					}
 					else {
 						error_message = "Error: Failed to update account balances.";
 					}
+					awaitingAcknowledgment = true;
 					});
 
 				// Back button to cancel the operation.
-				auto backButton = Button("Cancel", [&] {
+				auto backButton = Button("Back", [&] {
 					screen.Exit();
 					});
 
@@ -899,6 +909,15 @@ void customerMenu(Customer* customer, Bank& bank) {
 
 				// Renderer for the interface.
 				auto renderer = Renderer(layout, [&] {
+					if (awaitingAcknowledgment) {
+						return vbox({
+							text(success_message) | color(Color::Green) | center,
+							text(success_message2) | color(Color::Green) | center,
+							separator(),
+							backButton->Render() | center,
+							}) | border;
+					}
+
 					return vbox({
 							   text("Close Account") | bold | center,
 							   separator(),
@@ -1296,12 +1315,12 @@ void printDollarSign() {
 void printMU() {
 	cout << ORANGE << endl;
 	// Print the letter M and U side by side
-	cout << "					     ||\\\\      //||   ||       || " << endl;  // Row 1
-	cout << "					     || \\\\    // ||   ||       || " << endl;  // Row 2
-	cout << "					     ||  \\\\  //  ||   ||       || " << endl;  // Row 3
-	cout << "					     ||   \\\\//   ||   ||       || " << endl;  // Row 4
-	cout << "					     ||          ||   ||       || " << endl;  // Row 5
-	cout << "		                             ||          ||   ===========" << endl;  // Row 6
+	cout << "					    ||\\\\      //||   ||       || " << endl;  // Row 1
+	cout << "					    || \\\\    // ||   ||       || " << endl;  // Row 2
+	cout << "					    ||  \\\\  //  ||   ||       || " << endl;  // Row 3
+	cout << "					    ||   \\\\//   ||   ||       || " << endl;  // Row 4
+	cout << "					    ||          ||   ||       || " << endl;  // Row 5
+	cout << "		                            ||          ||   ===========" << endl;  // Row 6
 	cout << RESET;
 }
 
