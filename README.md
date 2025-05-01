@@ -86,6 +86,7 @@ cd CLI_BankingApp
 ---
 
 ## File Structure
+Link to doxygen documentation: [https://jwmathis.github.io/CLI_BankingApp/]
 - **main.cpp**: Entry point for the application
 - **Customer.h/Customer.cpp**: Manages customer-related operations.
 - **Admin.h**: Contains admin functionalities.
