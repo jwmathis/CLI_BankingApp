@@ -27,39 +27,40 @@
 \DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00047\ }
 \DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_bank_1_1acc}{acc}}\ \{}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_bank_1_1acc_a844cfeb590c59cd0f2ac7c3ddb59be8d}{accountId}};\ }
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_bank_1_1acc_a1e222570620afd3fc7f70a6f7310047b}{userId}};\ }
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{struct_bank_1_1acc_ad9383d0766012d8033aac108455176ee}{accountNumber}};\ }
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_bank_1_1acc_a038517d583a573cfaf340a49f95ce8ac}{balance}};\ }
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{struct_bank_1_1acc_a20fc58aa1805ef26496ecdd521a07405}{accountType}};\ }
-\DoxyCodeLine{00058\ \ \ \ \ \};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_bank_a20652481fafb1079c9404df2506f9c5a}{Bank}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ dbName);\ \textcolor{comment}{//\ Constructor\ to\ open\ database}}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{class_bank_a86eb33b90cf9dbf0a528155c5bfde004}{\string~Bank}}();\ }
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_a10b4e6eb6ebff86dff774be2dbdd0c55}{registerCustomer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ username,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ pin);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{class_customer}{Customer}}*\ \mbox{\hyperlink{class_bank_af548dd796463cdebda95a7dbc990f937}{login}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ username,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ pin);}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_ac95bec695452b361cf1a45500dc267ed}{addAccountForCustomer}}(\textcolor{keywordtype}{int}\ userId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountNumber,\ \textcolor{keywordtype}{double}\ initialBalance,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountType);}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00105\ \ \ \ \ vector<Account<T>*>\ \mbox{\hyperlink{class_bank_a17fdba37362b354cc7a8371aa1d9ae1a}{getAccountsForCustomer}}(\textcolor{keywordtype}{int}\ userId);}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
-\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{class_account}{Account<T>}}*\ \mbox{\hyperlink{class_bank_a63dd0420d408ca96b5eb79ea3d68b7d1}{getAccountByNumber}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountNumber);}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_a6ed60aba6d8afd3acc5874c355208c32}{updateAccountBalance}}(\textcolor{keywordtype}{int}\ accountId,\ \textcolor{keywordtype}{double}\ newBalance);}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_a85511960307fce9555fae7617c74883c}{accountRemoveAccount}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountNumber);}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_bank_a4d1c08ea15bc40cc5af6d7986388b095}{generateAccountNumber}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ accountType);}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_ad2a1bd9ea38c5549663d1e6487a6c159}{accountNumberExists}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountNumber);}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00149\ \ \ \ \ vector<acc>\ \mbox{\hyperlink{class_bank_aa1d9daacb9923f2b5406c45216fd78f9}{fetchAccountsFromDatabase}}();}
-\DoxyCodeLine{00150\ \};}
-\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{struct_bank_1_1acc_aca73aeedc9aba7419f26a3852bf2d7f5}{accountHolder}};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_bank_1_1acc_a844cfeb590c59cd0f2ac7c3ddb59be8d}{accountId}};\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_bank_1_1acc_a1e222570620afd3fc7f70a6f7310047b}{userId}};\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{struct_bank_1_1acc_ad9383d0766012d8033aac108455176ee}{accountNumber}};\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_bank_1_1acc_a038517d583a573cfaf340a49f95ce8ac}{balance}};\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{struct_bank_1_1acc_a20fc58aa1805ef26496ecdd521a07405}{accountType}};\ }
+\DoxyCodeLine{00059\ \ \ \ \ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_bank_a20652481fafb1079c9404df2506f9c5a}{Bank}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ dbName);\ \textcolor{comment}{//\ Constructor\ to\ open\ database}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_bank_a86eb33b90cf9dbf0a528155c5bfde004}{\string~Bank}}();\ }
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_a10b4e6eb6ebff86dff774be2dbdd0c55}{registerCustomer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ username,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ pin);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_customer}{Customer}}*\ \mbox{\hyperlink{class_bank_af548dd796463cdebda95a7dbc990f937}{login}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ username,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ pin);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_ac95bec695452b361cf1a45500dc267ed}{addAccountForCustomer}}(\textcolor{keywordtype}{int}\ userId,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountNumber,\ \textcolor{keywordtype}{double}\ initialBalance,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountType);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00106\ \ \ \ \ vector<Account<T>*>\ \mbox{\hyperlink{class_bank_a17fdba37362b354cc7a8371aa1d9ae1a}{getAccountsForCustomer}}(\textcolor{keywordtype}{int}\ userId);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{class_account}{Account<T>}}*\ \mbox{\hyperlink{class_bank_a63dd0420d408ca96b5eb79ea3d68b7d1}{getAccountByNumber}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountNumber);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_a6ed60aba6d8afd3acc5874c355208c32}{updateAccountBalance}}(\textcolor{keywordtype}{int}\ accountId,\ \textcolor{keywordtype}{double}\ newBalance);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_a85511960307fce9555fae7617c74883c}{accountRemoveAccount}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountNumber);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_bank_a4d1c08ea15bc40cc5af6d7986388b095}{generateAccountNumber}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ accountType);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_bank_ad2a1bd9ea38c5549663d1e6487a6c159}{accountNumberExists}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accountNumber);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00150\ \ \ \ \ vector<acc>\ \mbox{\hyperlink{class_bank_aa1d9daacb9923f2b5406c45216fd78f9}{fetchAccountsFromDatabase}}();}
+\DoxyCodeLine{00151\ \};}
+\DoxyCodeLine{00152\ }
 
 \end{DoxyCode}

@@ -23,7 +23,8 @@ var _u_i_utilities_8h =
       [ "HISTORY", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba283e4f8f90756c9892871460a0d62a60", null ],
       [ "UNDO", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba22a937c23ef109ac28176b98dacad9c6", null ],
       [ "HELP", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba9f5cb747b2e1f0ea781d2b1f2a5b4824", null ],
-      [ "LOGOUT", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70", null ]
+      [ "LOGOUT", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75ba86d6ca369e69a3a0f0c9bd063dd39a70", null ],
+      [ "TEST", "_u_i_utilities_8h.html#a086635c6f3d8496cfed28c79353ef75bab2f0cd22b1963becef8b91d29d567fe8", null ]
     ] ],
     [ "MainMenuOption", "_u_i_utilities_8h.html#a738419ee04f7ab8147651b3c9cc05bdc", [
       [ "REGISTER", "_u_i_utilities_8h.html#a738419ee04f7ab8147651b3c9cc05bdcaceb7c305772dab23a260960771180df3", null ],

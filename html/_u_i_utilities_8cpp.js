@@ -3,6 +3,10 @@ var _u_i_utilities_8cpp =
     [ "GREEN", "_u_i_utilities_8cpp.html#acfbc006ea433ad708fdee3e82996e721", null ],
     [ "ORANGE", "_u_i_utilities_8cpp.html#ac5b6e19bf06822021f35602c59658de3", null ],
     [ "RESET", "_u_i_utilities_8cpp.html#ab702106cf3b3e96750b6845ded4e0299", null ],
+    [ "ScrenState", "_u_i_utilities_8cpp.html#a3ba47f27febb8b82b431ff27d08857df", [
+      [ "MainMenu", "_u_i_utilities_8cpp.html#a3ba47f27febb8b82b431ff27d08857dfaad1111b48f98329333237912fc3b371b", null ],
+      [ "Deposit", "_u_i_utilities_8cpp.html#a3ba47f27febb8b82b431ff27d08857dfa92f80bd57592af65188ca27786514cca", null ]
+    ] ],
     [ "clearScreen", "_u_i_utilities_8cpp.html#a9d7e8af417b6d543da691e9c0e2f6f9f", null ],
     [ "customerMenu", "_u_i_utilities_8cpp.html#a82c910519f3e25f600287a5bce95c511", null ],
     [ "displayCustomerAccountsMenu", "_u_i_utilities_8cpp.html#a921e94cf426c13270a8707d4246a9701", null ],

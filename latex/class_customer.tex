@@ -30,7 +30,7 @@ string \mbox{\hyperlink{class_customer_a6269396e204e3eafd14db372246ba7e1}{genera
 \begin{DoxyCompactList}\small\item\em Generates a filename for a transaction receipt. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_customer_a255a84dfa66744e6f7689d4311dc8cd9}{generate\+Transaction\+Receipt}} (const string \&transaction)
 \begin{DoxyCompactList}\small\item\em Generates a transaction receipt. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_customer_ad26221c608bed7602434f3982e54d0bc}{add\+Transaction}} (const string \&type, double amount, const string \&timestamp)
+void \mbox{\hyperlink{class_customer_a5e827fcec1138fc2136b204b64cddcce}{add\+Transaction}} (const string \&type, double amount)
 \begin{DoxyCompactList}\small\item\em Adds a new transaction to the customer\textquotesingle{}s history. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_customer_a7c4c59e2325c3653b2480025a5a17ab0}{undo\+Transaction}} ()
 \begin{DoxyCompactList}\small\item\em Undoes the last transaction in the customer\textquotesingle{}s history. \end{DoxyCompactList}\item 
@@ -38,8 +38,10 @@ void \mbox{\hyperlink{class_customer_aa7b82fad31c4967e52eb1e49e6d368f8}{add\+Hel
 \begin{DoxyCompactList}\small\item\em Adds a help request to the customer\textquotesingle{}s queue. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_customer_a80f34e8da9bbe814e7f0a49800823a24}{remove\+Help\+Request}} ()
 \begin{DoxyCompactList}\small\item\em Removes the next help request from the customer\textquotesingle{}s queue. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_custom_queue}{Custom\+Queue}}$<$ string $>$ \& \mbox{\hyperlink{class_customer_acf385f328a77da5bccd3b704a80ec17d}{get\+Help\+Requests}} ()
+\mbox{\hyperlink{class_custom_queue}{Custom\+Queue}}$<$ std\+::string $>$ \mbox{\hyperlink{class_customer_ac1e2ebbe781de03bc6677e9fd73b4ec6}{get\+Help\+Requests}} ()
 \begin{DoxyCompactList}\small\item\em Retrieves all help requests from the customer\textquotesingle{}s queue. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_custom_queue}{Custom\+Queue}}$<$ std\+::string $>$ \mbox{\hyperlink{class_customer_a1b329fc62d506322207955770ade188a}{convert\+Vector\+To\+Queue}} (const std\+::vector$<$ std\+::string $>$ \&vec)
+\item 
 void \mbox{\hyperlink{class_customer_a0b460506c6a2bc5a8a1cb3f67c25b7b6}{display\+Transaction\+History}} ()
 \begin{DoxyCompactList}\small\item\em Displays the customer\textquotesingle{}s transaction history. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -107,11 +109,11 @@ Adds a help request to the customer\textquotesingle{}s queue.
 {\em request} & The help request string. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_customer_ad26221c608bed7602434f3982e54d0bc}\index{Customer@{Customer}!addTransaction@{addTransaction}}
+\Hypertarget{class_customer_a5e827fcec1138fc2136b204b64cddcce}\index{Customer@{Customer}!addTransaction@{addTransaction}}
 \index{addTransaction@{addTransaction}!Customer@{Customer}}
 \doxysubsubsection{\texorpdfstring{addTransaction()}{addTransaction()}}
-{\footnotesize\ttfamily \label{class_customer_ad26221c608bed7602434f3982e54d0bc} 
-void Customer\+::add\+Transaction (\begin{DoxyParamCaption}\item[{const string \&}]{type}{, }\item[{double}]{amount}{, }\item[{const string \&}]{timestamp}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_customer_a5e827fcec1138fc2136b204b64cddcce} 
+void Customer\+::add\+Transaction (\begin{DoxyParamCaption}\item[{const string \&}]{type}{, }\item[{double}]{amount}{}\end{DoxyParamCaption})}
 
 
 
@@ -126,6 +128,12 @@ Adds a new transaction to the customer\textquotesingle{}s history.
 {\em timestamp} & The timestamp of the transaction. \\
 \hline
 \end{DoxyParams}
+\Hypertarget{class_customer_a1b329fc62d506322207955770ade188a}\index{Customer@{Customer}!convertVectorToQueue@{convertVectorToQueue}}
+\index{convertVectorToQueue@{convertVectorToQueue}!Customer@{Customer}}
+\doxysubsubsection{\texorpdfstring{convertVectorToQueue()}{convertVectorToQueue()}}
+{\footnotesize\ttfamily \label{class_customer_a1b329fc62d506322207955770ade188a} 
+\mbox{\hyperlink{class_custom_queue}{Custom\+Queue}}$<$ std\+::string $>$ Customer\+::convert\+Vector\+To\+Queue (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{vec}{}\end{DoxyParamCaption})}
+
 \Hypertarget{class_customer_a0b460506c6a2bc5a8a1cb3f67c25b7b6}\index{Customer@{Customer}!displayTransactionHistory@{displayTransactionHistory}}
 \index{displayTransactionHistory@{displayTransactionHistory}!Customer@{Customer}}
 \doxysubsubsection{\texorpdfstring{displayTransactionHistory()}{displayTransactionHistory()}}
@@ -164,11 +172,11 @@ Generates a filename for a transaction receipt.
 \begin{DoxyReturn}{Returns}
 A string containing the generated filename. 
 \end{DoxyReturn}
-\Hypertarget{class_customer_acf385f328a77da5bccd3b704a80ec17d}\index{Customer@{Customer}!getHelpRequests@{getHelpRequests}}
+\Hypertarget{class_customer_ac1e2ebbe781de03bc6677e9fd73b4ec6}\index{Customer@{Customer}!getHelpRequests@{getHelpRequests}}
 \index{getHelpRequests@{getHelpRequests}!Customer@{Customer}}
 \doxysubsubsection{\texorpdfstring{getHelpRequests()}{getHelpRequests()}}
-{\footnotesize\ttfamily \label{class_customer_acf385f328a77da5bccd3b704a80ec17d} 
-\mbox{\hyperlink{class_custom_queue}{Custom\+Queue}}$<$ string $>$ \& Customer\+::get\+Help\+Requests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_customer_ac1e2ebbe781de03bc6677e9fd73b4ec6} 
+\mbox{\hyperlink{class_custom_queue}{Custom\+Queue}}$<$ string $>$ Customer\+::get\+Help\+Requests (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 

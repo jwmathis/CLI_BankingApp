@@ -58,7 +58,7 @@
 \DoxyCodeLine{00054\ \ \ \ \ Node*\ rearNode;\ \ }
 \DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ count;\ \ \ \ \ \ }
 \DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a565ff451c4368aca8a1a708364b9a1fc}{CustomQueue}}()\ :\ frontNode(nullptr),\ rearNode(nullptr)\ \{\}}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a565ff451c4368aca8a1a708364b9a1fc}{CustomQueue}}()\ :\ frontNode(nullptr),\ rearNode(nullptr),\ count(0)\ \{\}}
 \DoxyCodeLine{00058\ }
 \DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a45a5316a51c4489c22d0c3b9659d0bd5}{\string~CustomQueue}}()\ \{}
 \DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{class_custom_queue_ac77796d4dc67637357abfe698b164bee}{empty}}())\ \{}
@@ -81,7 +81,7 @@
 \DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_custom_queue_a1b4fabafa838264e5ec327ece9201c8d}{pop}}()\ \{}
 \DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_custom_queue_ac77796d4dc67637357abfe698b164bee}{empty}}())\ \{}
 \DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ Node*\ temp\ =\ frontNode;}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ frontNode\ =\ frontNode-\/>next;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ frontNode\ =\ temp-\/>next;}
 \DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ temp;}
 \DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/count;\ \textcolor{comment}{//\ Decrement\ size}}
 \DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!frontNode)\ \{}
@@ -104,7 +104,29 @@
 \DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_custom_queue_a734f21789c2647bdb9b155ff8617bee5}{size}}()\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
 \DoxyCodeLine{00102\ \ \ \ \ \}}
-\DoxyCodeLine{00103\ \};}
-\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{class_custom_queue_adaef6c04dd8fe39b6f4b49fbdcd54b6f}{CustomQueue}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_custom_queue_a565ff451c4368aca8a1a708364b9a1fc}{CustomQueue}}\&\ other)\ :\ frontNode(nullptr),\ rearNode(nullptr),\ count(0)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ Node*\ current\ =\ other.frontNode;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a49e41896fca2c8c83c1456a043216fe8}{push}}(current-\/>data);\ \textcolor{comment}{//\ Use\ \`{}push`\ to\ add\ elements\ to\ the\ new\ queue}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a565ff451c4368aca8a1a708364b9a1fc}{CustomQueue}}\&\ \mbox{\hyperlink{class_custom_queue_a345984978ae54be681d3363be0cc3865}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_custom_queue_a565ff451c4368aca8a1a708364b9a1fc}{CustomQueue}}\&\ other)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&other)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!\mbox{\hyperlink{class_custom_queue_ac77796d4dc67637357abfe698b164bee}{empty}}())\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a1b4fabafa838264e5ec327ece9201c8d}{pop}}();\ \textcolor{comment}{//\ Clear\ the\ current\ queue}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ Node*\ current\ =\ other.frontNode;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_custom_queue_a49e41896fca2c8c83c1456a043216fe8}{push}}(current-\/>data);\ \textcolor{comment}{//\ Copy\ elements}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \};}
+\DoxyCodeLine{00126\ }
 
 \end{DoxyCode}

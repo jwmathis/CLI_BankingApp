@@ -183,34 +183,38 @@ TEST(SystemTest, WithdrawFunds_InsufficientFunds) {
 	EXPECT_EQ(output, "Error: Insufficient funds.\n");
 }
 
-// Test Case 7
-//TEST(SystemTest, TransferFunds) {
-//	Bank testBank("test.db");
-//	testBank.registerCustomer("Colin", "colingreens", "1111");
-//	Customer* customer = testBank.login("colingreens", "1111");
-//
-//	// Create new accounts
-//	cout << "Step 2: Create two new accounts...\n";
-//	int accNum = testBank.generateAccountNumber(1);
-//	testBank.addAccountForCustomer(customer->getId(), to_string(accNum), 1000.00);
-//	int accNum2 = testBank.generateAccountNumber(1);
-//	testBank.addAccountForCustomer(customer->getId(), to_string(accNum2), 500.00);
-//
-//	Account<double>* senderAccount = testBank.getAccountByNumber<double>(to_string(accNum)); // Fetch the sender account from database
-//	Account<double>* recieverAccount = testBank.getAccountByNumber<double>(to_string(accNum2)); // Fetch the recieverr account from database
-//
-//	double amount = 300.00;
-//	Transfer transfer(*senderAccount, *recieverAccount);
-//	transfer.setAmount(amount);
-//	senderAccount->withdraw(amount);
-//	recieverAccount->deposit(amount);
-//
-//	testBank.updateAccountBalance(senderAccount->getId(), senderAccount->getBalance());
-//	testBank.updateAccountBalance(recieverAccount->getId(), recieverAccount->getBalance());
-//
-//	EXPECT_EQ(senderAccount->getBalance(), 700.00);
-//	EXPECT_EQ(recieverAccount->getBalance(), 800.00);
-//}
+/**
+ * @test SystemTest::TransferFunds
+ * @brief Tests transfer functionality between accounts.
+ */
+ // Test Case 7
+TEST(SystemTest, TransferFunds) {
+	Bank testBank("test.db");
+	testBank.registerCustomer("Colin", "colingreens", "1111");
+	Customer* customer = testBank.login("colingreens", "1111");
+
+	// Create new accounts
+	cout << "Step 2: Create two new accounts...\n";
+	int accNum = testBank.generateAccountNumber(1);
+	testBank.addAccountForCustomer(customer->getId(), to_string(accNum), 1000.00, "Savings");
+	int accNum2 = testBank.generateAccountNumber(1);
+	testBank.addAccountForCustomer(customer->getId(), to_string(accNum2), 500.00, "Regular");
+
+	Account<double>* senderAccount = testBank.getAccountByNumber<double>(to_string(accNum)); // Fetch the sender account from database
+	Account<double>* recieverAccount = testBank.getAccountByNumber<double>(to_string(accNum2)); // Fetch the reciever account from database
+
+	double amount = 300.00;
+	Transfer transfer(senderAccount, recieverAccount);
+	transfer.setAmount(amount);
+	senderAccount->withdraw(amount);
+	recieverAccount->deposit(amount);
+
+	testBank.updateAccountBalance(senderAccount->getId(), senderAccount->getBalance());
+	testBank.updateAccountBalance(recieverAccount->getId(), recieverAccount->getBalance());
+
+	EXPECT_EQ(senderAccount->getBalance(), 700.00);
+	EXPECT_EQ(recieverAccount->getBalance(), 800.00);
+}
 
 /**
  * @test SystemTest::BalanceValidation

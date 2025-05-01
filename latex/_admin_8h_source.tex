@@ -70,109 +70,110 @@
 \DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{class_account_b_s_t_ae5e779cded860984a0bd004127a83f78}{AccountBST}}()\ :\ root(nullptr)\ \{\}}
 \DoxyCodeLine{00133\ }
 \DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_b_s_t_aeb9f6e847d60a852057ba41955db3020}{printAccount}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_bank_1_1acc}{Bank::acc}}\&\ acc)\ \{}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Account\ ID:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_a844cfeb590c59cd0f2ac7c3ddb59be8d}{accountId}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}User\ ID:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_a1e222570620afd3fc7f70a6f7310047b}{userId}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Account\ Number:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_ad9383d0766012d8033aac108455176ee}{accountNumber}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Balance:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_a038517d583a573cfaf340a49f95ce8ac}{balance}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Account\ Type:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_a20fc58aa1805ef26496ecdd521a07405}{accountType}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00145\ \ \ \ \ \}}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_b_s_t_a389f4bc143a24bba02b42be6b419d52b}{insert}}(\mbox{\hyperlink{struct_bank_1_1acc}{Bank::acc}}\ account)\ \{}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ root\ =\ insert(root,\ account);\ \textcolor{comment}{//\ Insert\ a\ new\ account\ into\ the\ tree}}
-\DoxyCodeLine{00154\ \ \ \ \ \}}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_b_s_t_aa67589f8d6dd5adbc4756c0e4c6b9d8a}{buildTree}}(\textcolor{keyword}{const}\ vector<Bank::acc>\&\ accounts)\ \{}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ account\ :\ accounts)\ \{}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ insert(account);\ \textcolor{comment}{//\ Insert\ each\ account\ into\ the\ tree}}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00165\ \ \ \ \ \}}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_b_s_t_a8474d8ca51ea2510a86162a791b7ccbb}{displayAllAccounts}}()\ \{}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ inorder(root);\ \textcolor{comment}{//\ Print\ all\ accounts\ in\ the\ tree}}
-\DoxyCodeLine{00172\ \ \ \ \ \}}
-\DoxyCodeLine{00173\ }
-\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{struct_bank_1_1acc}{Bank::acc}}*\ \mbox{\hyperlink{class_account_b_s_t_ab56b83b8e8e9823024249a397c86429e}{searchAccount}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accNumber)\ \{}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ search(root,\ accNumber);}
-\DoxyCodeLine{00182\ \ \ \ \ \}}
-\DoxyCodeLine{00183\ }
-\DoxyCodeLine{00184\ \};}
-\DoxyCodeLine{00185\ }
-\DoxyCodeLine{00186\ \textcolor{comment}{//\ Merge\ Sort\ Functions}}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00196\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_admin_8h_a3a413623c154276e5f645cd3d1ad2c9f}{merge}}(vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ mid,\ \textcolor{keywordtype}{int}\ high)\ \{}
-\DoxyCodeLine{00197\ \ \ \ \ vector<Bank::acc>\ temp(high\ -\/\ low\ +\ 1);}
-\DoxyCodeLine{00198\ }
-\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ low,\ j\ =\ mid\ +\ 1,\ k\ =\ 0;}
-\DoxyCodeLine{00200\ }
-\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <=\ mid\ \&\&\ j\ <=\ high)\ \{}
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (accounts[i].balance\ <\ accounts[j].balance)\ \{}
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ temp[k++]\ =\ accounts[i++];}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ temp[k++]\ =\ accounts[j++];}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00208\ \ \ \ \ \}}
-\DoxyCodeLine{00209\ }
-\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <=\ mid)\ \{}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ temp[k++]\ =\ accounts[i++];}
-\DoxyCodeLine{00212\ \ \ \ \ \}}
-\DoxyCodeLine{00213\ }
-\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordflow}{while}\ (j\ <=\ high)\ \{}
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ temp[k++]\ =\ accounts[j++];}
-\DoxyCodeLine{00216\ \ \ \ \ \}}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ low;\ i\ <=\ temp.size();\ i++)\ \{}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ accounts[low\ +\ i]\ =\ temp[i];}
-\DoxyCodeLine{00220\ \ \ \ \ \}}
-\DoxyCodeLine{00221\ \}}
-\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Account\ Holder:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_aca73aeedc9aba7419f26a3852bf2d7f5}{accountHolder}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Account\ ID:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_a844cfeb590c59cd0f2ac7c3ddb59be8d}{accountId}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}User\ ID:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_a1e222570620afd3fc7f70a6f7310047b}{userId}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Account\ Number:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_ad9383d0766012d8033aac108455176ee}{accountNumber}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Balance:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_a038517d583a573cfaf340a49f95ce8ac}{balance}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Account\ Type:\ "{}}\ <<\ acc.\mbox{\hyperlink{struct_bank_1_1acc_a20fc58aa1805ef26496ecdd521a07405}{accountType}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_b_s_t_a389f4bc143a24bba02b42be6b419d52b}{insert}}(\mbox{\hyperlink{struct_bank_1_1acc}{Bank::acc}}\ account)\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ root\ =\ insert(root,\ account);\ \textcolor{comment}{//\ Insert\ a\ new\ account\ into\ the\ tree}}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_b_s_t_aa67589f8d6dd5adbc4756c0e4c6b9d8a}{buildTree}}(\textcolor{keyword}{const}\ vector<Bank::acc>\&\ accounts)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ account\ :\ accounts)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ insert(account);\ \textcolor{comment}{//\ Insert\ each\ account\ into\ the\ tree}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_account_b_s_t_a8474d8ca51ea2510a86162a791b7ccbb}{displayAllAccounts}}()\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ inorder(root);\ \textcolor{comment}{//\ Print\ all\ accounts\ in\ the\ tree}}
+\DoxyCodeLine{00173\ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{struct_bank_1_1acc}{Bank::acc}}*\ \mbox{\hyperlink{class_account_b_s_t_ab56b83b8e8e9823024249a397c86429e}{searchAccount}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ accNumber)\ \{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ search(root,\ accNumber);}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{comment}{//\ Merge\ Sort\ Functions}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_admin_8h_a3a413623c154276e5f645cd3d1ad2c9f}{merge}}(vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ mid,\ \textcolor{keywordtype}{int}\ high)\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ vector<Bank::acc>\ temp(high\ -\/\ low\ +\ 1);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ low,\ j\ =\ mid\ +\ 1,\ k\ =\ 0;}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <=\ mid\ \&\&\ j\ <=\ high)\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (accounts[i].balance\ <\ accounts[j].balance)\ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ temp[k++]\ =\ accounts[i++];}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ temp[k++]\ =\ accounts[j++];}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ <=\ mid)\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ temp[k++]\ =\ accounts[i++];}
+\DoxyCodeLine{00213\ \ \ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordflow}{while}\ (j\ <=\ high)\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ temp[k++]\ =\ accounts[j++];}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ low;\ i\ <=\ temp.size();\ i++)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ accounts[low\ +\ i]\ =\ temp[i];}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \}}
 \DoxyCodeLine{00223\ }
-\DoxyCodeLine{00231\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}{merge\_recurse}}(vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ high)\ \{}
-\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ >=\ high)\ \{}
-\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00234\ \ \ \ \ \}}
-\DoxyCodeLine{00235\ }
-\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{int}\ mid\ =\ (low\ +\ high)\ /\ 2;}
-\DoxyCodeLine{00237\ \ \ \ \ \mbox{\hyperlink{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}{merge\_recurse}}(accounts,\ low,\ mid);}
-\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}{merge\_recurse}}(accounts,\ mid\ +\ 1,\ high);}
-\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{_admin_8h_a3a413623c154276e5f645cd3d1ad2c9f}{merge}}(accounts,\ low,\ mid,\ high);}
-\DoxyCodeLine{00240\ }
-\DoxyCodeLine{00241\ \}}
-\DoxyCodeLine{00242\ }
-\DoxyCodeLine{00249\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_admin_8h_a790b527353354f26f37d37e7a258a3f9}{mergeSort}}(vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{int}\ length)\ \{}
-\DoxyCodeLine{00250\ \ \ \ \ \mbox{\hyperlink{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}{merge\_recurse}}(accounts,\ 0,\ length\ -\/\ 1);}
-\DoxyCodeLine{00251\ \}}
-\DoxyCodeLine{00252\ }
-\DoxyCodeLine{00260\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_admin_8h_a067ce5037185b1ffb5c8fc3ee3e7cf88}{findLowerBound}}(\textcolor{keyword}{const}\ vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{double}\ minBalance)\ \{\ \textcolor{comment}{//\ Binary\ Search:\ Returns\ the\ index\ of\ the\ first\ account\ with\ a\ balance\ greater\ than\ or\ equal\ to\ minBalance}}
-\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{int}\ low\ =\ 0,\ high\ =\ accounts.size()\ -\/\ 1;}
-\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordflow}{while}\ (low\ <\ high)\ \{}
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mid\ =\ low\ +\ (high\ -\/\ low)\ /\ 2;}
-\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (accounts[mid].balance\ <\ minBalance)\ \{}
-\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ low\ =\ mid\ +\ 1;}
-\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ high\ =\ mid;}
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00270\ \ \ \ \ \}}
-\DoxyCodeLine{00271\ }
-\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{return}\ (accounts[low].balance\ >=\ minBalance)\ ?\ low\ :\ -\/1;}
-\DoxyCodeLine{00273\ \}}
-\DoxyCodeLine{00274\ }
-\DoxyCodeLine{00283\ \textcolor{keyword}{inline}\ vector<Bank::acc>\ \mbox{\hyperlink{_admin_8h_ae18b6b70f3ed17cd0e4272110bc7bd63}{getAccountsInBalanceRange}}(vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{double}\ minBalance,\ \textcolor{keywordtype}{double}\ maxBalance)\ \{}
-\DoxyCodeLine{00284\ \ \ \ \ sort(accounts.begin(),\ accounts.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_bank_1_1acc}{Bank::acc}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_bank_1_1acc}{Bank::acc}}\&\ b)\ \{}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ return\ a.balance\ <\ b.balance;\ \textcolor{comment}{//\ Compare\ based\ on\ balance}}
-\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \});}
-\DoxyCodeLine{00287\ \ \ \ \ \textcolor{comment}{//mergeSort(accounts,\ accounts.size());}}
-\DoxyCodeLine{00288\ }
-\DoxyCodeLine{00289\ \ \ \ \ \textcolor{keywordtype}{int}\ startIdx\ =\ \mbox{\hyperlink{_admin_8h_a067ce5037185b1ffb5c8fc3ee3e7cf88}{findLowerBound}}(accounts,\ minBalance);}
-\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordflow}{if}\ (startIdx\ ==\ -\/1)\ \textcolor{keywordflow}{return}\ \{\};}
-\DoxyCodeLine{00291\ }
-\DoxyCodeLine{00292\ \ \ \ \ vector<Bank::acc>\ filteredAccounts;}
-\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ startIdx;\ i\ <\ accounts.size()\ \&\&\ accounts[i].balance\ <=\ maxBalance;\ i++)\ \{}
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ filteredAccounts.push\_back(accounts[i]);}
-\DoxyCodeLine{00295\ \ \ \ \ \}}
-\DoxyCodeLine{00296\ }
-\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{return}\ filteredAccounts;}
-\DoxyCodeLine{00298\ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00232\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}{merge\_recurse}}(vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{int}\ low,\ \textcolor{keywordtype}{int}\ high)\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordflow}{if}\ (low\ >=\ high)\ \{}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{int}\ mid\ =\ (low\ +\ high)\ /\ 2;}
+\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}{merge\_recurse}}(accounts,\ low,\ mid);}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}{merge\_recurse}}(accounts,\ mid\ +\ 1,\ high);}
+\DoxyCodeLine{00240\ \ \ \ \ \mbox{\hyperlink{_admin_8h_a3a413623c154276e5f645cd3d1ad2c9f}{merge}}(accounts,\ low,\ mid,\ high);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00250\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_admin_8h_a790b527353354f26f37d37e7a258a3f9}{mergeSort}}(vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{int}\ length)\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \mbox{\hyperlink{_admin_8h_a2dc81fb7250b9e4936a65bcf24a8787d}{merge\_recurse}}(accounts,\ 0,\ length\ -\/\ 1);}
+\DoxyCodeLine{00252\ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00261\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_admin_8h_a067ce5037185b1ffb5c8fc3ee3e7cf88}{findLowerBound}}(\textcolor{keyword}{const}\ vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{double}\ minBalance)\ \{\ \textcolor{comment}{//\ Binary\ Search:\ Returns\ the\ index\ of\ the\ first\ account\ with\ a\ balance\ greater\ than\ or\ equal\ to\ minBalance}}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{int}\ low\ =\ 0,\ high\ =\ accounts.size()\ -\/\ 1;}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordflow}{while}\ (low\ <\ high)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mid\ =\ low\ +\ (high\ -\/\ low)\ /\ 2;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (accounts[mid].balance\ <\ minBalance)\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ low\ =\ mid\ +\ 1;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ high\ =\ mid;}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00271\ \ \ \ \ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{return}\ (accounts[low].balance\ >=\ minBalance)\ ?\ low\ :\ -\/1;}
+\DoxyCodeLine{00274\ \}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00284\ \textcolor{keyword}{inline}\ vector<Bank::acc>\ \mbox{\hyperlink{_admin_8h_ae18b6b70f3ed17cd0e4272110bc7bd63}{getAccountsInBalanceRange}}(vector<Bank::acc>\&\ accounts,\ \textcolor{keywordtype}{double}\ minBalance,\ \textcolor{keywordtype}{double}\ maxBalance)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ sort(accounts.begin(),\ accounts.end(),\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_bank_1_1acc}{Bank::acc}}\&\ a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_bank_1_1acc}{Bank::acc}}\&\ b)\ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ return\ a.balance\ <\ b.balance;\ \textcolor{comment}{//\ Compare\ based\ on\ balance}}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{comment}{//mergeSort(accounts,\ accounts.size());}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordtype}{int}\ startIdx\ =\ \mbox{\hyperlink{_admin_8h_a067ce5037185b1ffb5c8fc3ee3e7cf88}{findLowerBound}}(accounts,\ minBalance);}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordflow}{if}\ (startIdx\ ==\ -\/1)\ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ vector<Bank::acc>\ filteredAccounts;}
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ startIdx;\ i\ <\ accounts.size()\ \&\&\ accounts[i].balance\ <=\ maxBalance;\ i++)\ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ filteredAccounts.push\_back(accounts[i]);}
+\DoxyCodeLine{00296\ \ \ \ \ \}}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordflow}{return}\ filteredAccounts;}
+\DoxyCodeLine{00299\ \}}
 
 \end{DoxyCode}

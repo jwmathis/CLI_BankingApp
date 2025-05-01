@@ -10,7 +10,7 @@ var searchData=
   ['getaccountsinbalancerange_7',['getAccountsInBalanceRange',['../_admin_8h.html#ae18b6b70f3ed17cd0e4272110bc7bd63',1,'Admin.h']]],
   ['getaccountto_8',['getAccountTo',['../class_transfer.html#a740312973fe3f24ab74dcbb7c3723971',1,'Transfer']]],
   ['getbalance_9',['getBalance',['../class_account.html#aea2b95b39a4df91dbd290372a07905e0',1,'Account']]],
-  ['gethelprequests_10',['getHelpRequests',['../class_customer.html#acf385f328a77da5bccd3b704a80ec17d',1,'Customer']]],
+  ['gethelprequests_10',['getHelpRequests',['../class_customer.html#ac1e2ebbe781de03bc6677e9fd73b4ec6',1,'Customer']]],
   ['getid_11',['getId',['../class_account.html#ac4fb96b2745197b1004cfbf17b4881bc',1,'Account::getId()'],['../class_customer.html#acdbe83bbd49996e9a3b62820433b6f5d',1,'Customer::getId() const']]],
   ['getname_12',['getName',['../class_customer.html#ab3b175c6e82d67d019d2619dc405e074',1,'Customer']]],
   ['getrandomfruitemoji_13',['getRandomFruitEmoji',['../_u_i_utilities_8cpp.html#a982978898160ea4a6df1fc9363d117f4',1,'getRandomFruitEmoji():&#160;UIUtilities.cpp'],['../_u_i_utilities_8h.html#a8e2d2463e26874516078c7b1350939fa',1,'getRandomFruitEmoji(void):&#160;UIUtilities.cpp']]],

@@ -59,7 +59,7 @@
 \DoxyCodeLine{00111\ }
 \DoxyCodeLine{00112\ \ \ \ \ \textcolor{comment}{//\ Transaction\ methods}}
 \DoxyCodeLine{00113\ }
-\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_ad26221c608bed7602434f3982e54d0bc}{addTransaction}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ type,\ \textcolor{keywordtype}{double}\ amount,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ timestamp);}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a5e827fcec1138fc2136b204b64cddcce}{addTransaction}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\&\ type,\ \textcolor{keywordtype}{double}\ amount);}
 \DoxyCodeLine{00121\ }
 \DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a7c4c59e2325c3653b2480025a5a17ab0}{undoTransaction}}();}
 \DoxyCodeLine{00126\ }
@@ -67,9 +67,10 @@
 \DoxyCodeLine{00132\ }
 \DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_customer_a80f34e8da9bbe814e7f0a49800823a24}{removeHelpRequest}}();}
 \DoxyCodeLine{00138\ }
-\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{class_custom_queue}{CustomQueue<string>}}\&\ \mbox{\hyperlink{class_customer_acf385f328a77da5bccd3b704a80ec17d}{getHelpRequests}}();}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a0b460506c6a2bc5a8a1cb3f67c25b7b6}{displayTransactionHistory}}();\ \textcolor{comment}{//\ To\ integrate\ with\ FTXUI}}
-\DoxyCodeLine{00149\ \};}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{comment}{//vector<string>\&\ getHelpRequests();}}
+\DoxyCodeLine{00144\ \ \ \ \ \mbox{\hyperlink{class_custom_queue}{CustomQueue<std::string>}}\ \mbox{\hyperlink{class_customer_ac1e2ebbe781de03bc6677e9fd73b4ec6}{getHelpRequests}}();}
+\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{class_custom_queue}{CustomQueue<std::string>}}\ \mbox{\hyperlink{class_customer_a1b329fc62d506322207955770ade188a}{convertVectorToQueue}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ vec);}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_customer_a0b460506c6a2bc5a8a1cb3f67c25b7b6}{displayTransactionHistory}}();\ \textcolor{comment}{//\ To\ integrate\ with\ FTXUI}}
+\DoxyCodeLine{00150\ \};}
 
 \end{DoxyCode}
