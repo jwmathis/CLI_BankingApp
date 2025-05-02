@@ -38,8 +38,14 @@ A comprehensive command-line banking application built in C++, designed to provi
 - **Unicode Support**: Displays emojis and other symbols to enhance user experience.
 
 ---
-
+## Downloading the App
+1. Navigate to the Releases section of this repository.
+2. Find the latest release and click on it.
+3. Download the .exe file (for Windows only).
+4. Run the application.
+   
 ## Setup and Installation
+To build the application from the source code:
 
 1. Clone the repository:
 ```
@@ -52,7 +58,7 @@ cd CLI_BankingApp
     ```
     ./vcpkg install ftxui
     ```
-
+    - Follow the instructions to set up VCPKG [here](https://vcpkg.io/en/).
     - Follow the instructions to set up FTXUI [here](https://github.com/ArthurSonzogni/FTXUI).
     - Ensure [SQLite3](https://www.sqlite.org/) is installed and properly linked. 
 
@@ -72,6 +78,17 @@ cd CLI_BankingApp
 
 6. Run the application
 
+## Unit Tests
+To run the unit tests for this project, follow these steps:
+1. Open the project in Visual Studio
+2. Switch to the "Test" Congfiguration
+    * In the top toolbar, locate the Solution Configurations dropdown menu (usually near the "Start" button).
+    * Select Test from the dropdown options.
+3. Build the project
+4. View the the test results
+    * Once the tests have run, the results (pass/fail) will apppear in a terminal window.
+      
+Note: Ensure [Gtest](https://github.com/google/googletest) is installed and properly linked.
 ---
 
 ## Usage
